@@ -24,6 +24,8 @@ public class MovOrb : MonoBehaviour {
     public GameObject mainCamera;
     public float playerPos;      // Starting position of player
     public float horizVel = 0;   //hortizontal velocity of player
+    public int laneNumber = 2;      // hold current lane player is in. L= 1 , M=2 , R =3
+    private bool controlLocked = false; // to prevent rapid button mashing of controls
 
     // Use this for initialization
     void Start()
@@ -39,19 +41,23 @@ public class MovOrb : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 4);  // move player hardcoded for debugging 
 
 
-        //if player presses left button
-        if (Input.GetKeyDown(moveLeft)) {
+        //if player presses left button and is not in left most lane already.
+        if (Input.GetKeyDown(moveLeft) && (laneNumber >1) && (!controlLocked)) {
 
             horizVel = -2;                //move left
             StartCoroutine(StopSlide());  // stop move
+            laneNumber -= 1;
+            controlLocked = true;
         }// end if
 
-        //if player presses right button
-        if (Input.GetKeyDown(moveRight))
+        //if player presses right button and is not in right most lane already
+        if (Input.GetKeyDown(moveRight) && (laneNumber <3) && (!controlLocked))
         {
 
             horizVel = +2;                //move left
             StartCoroutine(StopSlide());  // stop move
+            laneNumber += 1;
+            controlLocked = true;
         }// end if
 
     }// end update
@@ -61,6 +67,7 @@ public class MovOrb : MonoBehaviour {
 
         yield return new WaitForSeconds(.5f);
         horizVel = 0;
+        controlLocked = false;
     }// end stopSlide
 
 } // end MovOrb
