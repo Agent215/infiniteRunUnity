@@ -19,7 +19,8 @@ public class CamMov : MonoBehaviour {
     
     public float camPos;          // current point of camera z axis
     public GameObject mainCamera;  // main cam
-    public Vector3 startCam;       // starting point of cam
+   
+   
 
     // Use this for initialization
     void Start () {
@@ -30,15 +31,18 @@ public class CamMov : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        camPos = GetComponent<Rigidbody>().position.z;
-        if (camPos > 16.0f)                     // if cam gets to certain point, then send back to begining.
-        {
-
-           
-        mainCamera.transform.Translate(0, -3.037822f, -16);    // hardcoded starting location for debugging
-            camPos = 0;
-
-        }
+        camPos = GetComponent<Rigidbody>().position.z;   
+   
 		
 	}
-}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("trigger"))
+        {
+            mainCamera.transform.Translate(0, -4.16822f, -22);    // hardcoded starting location for debugging
+
+        } // end if
+    }
+
+}// end CamMov
