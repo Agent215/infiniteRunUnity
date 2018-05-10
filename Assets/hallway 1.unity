@@ -464,9 +464,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cb851096ff4a647b2f5ce9848ca513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveLeft: 97
+  moveRight: 100
   player: {fileID: 0}
   mainCamera: {fileID: 0}
   playerPos: 0
+  horizVel: 0
 --- !u!54 &488584020
 Rigidbody:
   m_ObjectHideFlags: 0
