@@ -4,7 +4,7 @@
  * Last edited 5/9//2018
  * 
  * This is a script to move the player in an endless run down a hallway
- * 
+ * Input for movment is read in from the keyboard.
  * 
  * 
  * 
@@ -22,10 +22,10 @@ public class MovOrb : MonoBehaviour {
     //objects in game
     public GameObject player;     // game object for player
     public GameObject mainCamera;
-    public float playerPos;      // Starting position of player
-    public float horizVel = 0;   //hortizontal velocity of player
-    public int laneNumber = 2;      // hold current lane player is in. L= 1 , M=2 , R =3
-    private bool controlLocked = false; // to prevent rapid button mashing of controls
+    public float playerPos;               // Starting position of player
+    public float horizVel = 0;           //hortizontal velocity of player
+    public int laneNumber = 2;           // hold current lane player is in. L= 1 , M=2 , R =3
+    private bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
 
     // Use this for initialization
     void Start()
@@ -37,7 +37,7 @@ public class MovOrb : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        playerPos = GetComponent<Rigidbody>().position.z;          //set player position
+        playerPos = GetComponent<Rigidbody>().position.z;                   //set player position
         GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 4);  // move player hardcoded for debugging 
 
 

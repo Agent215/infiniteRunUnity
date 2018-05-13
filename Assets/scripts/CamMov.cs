@@ -27,22 +27,22 @@ public class CamMov : MonoBehaviour {
      
          mainCamera = GameObject.Find("Main Camera");
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 4);
-	}
+	} // end start
 	
 	// Update is called once per frame
 	void Update () {
         camPos = GetComponent<Rigidbody>().position.z;   
    
 		
-	}
+	} //end update
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("trigger"))
         {
-            mainCamera.transform.Translate(0, -4.16822f, -22);    // hardcoded starting location for debugging
+            mainCamera.transform.Translate(0, -4.16822f, -22f);    // hardcoded starting location for debugging
 
         } // end if
-    }
+    } // end OnTriggerEnter
 
 }// end CamMov
