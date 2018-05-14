@@ -59,13 +59,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Myo Samples\Scripts\ColorBoxByPose.cs" />
+    <Compile Include="Assets\Myo Samples\Scripts\JointOrientation.cs" />
+    <Compile Include="Assets\Myo Samples\Scripts\SampleSceneGUI.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\EventTypes.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Hub.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\libmyo.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Myo.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Pose.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Quaternion.cs" />
+    <Compile Include="Assets\Myo\Scripts\Myo.NET\Vector3.cs" />
+    <Compile Include="Assets\Myo\Scripts\ThalmicHub.cs" />
+    <Compile Include="Assets\Myo\Scripts\ThalmicMyo.cs" />
     <Compile Include="Assets\scripts\CamMov.cs" />
     <Compile Include="Assets\scripts\MovOrb.cs" />
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
+    <None Include="Assets\Myo\README-MyoUnity.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
