@@ -1,7 +1,7 @@
-﻿/*CammMov.cs
+﻿/*CamMov.cs
  * Abraham Schultz
  * 
- * Last edited 5/9//2018
+ * Last edited 5/21//2018
  * 
  * This is a script to move the camera in an endless run down a hallway
  * 
@@ -19,30 +19,37 @@ public class CamMov : MonoBehaviour {
     
     public float camPos;          // current point of camera z axis
     public GameObject mainCamera;  // main cam
-   
-   
+    private Vector3 spawnLocation;  // location cam spawns at after resetting 
 
+    //******************************************************************************************************************************
     // Use this for initialization
     void Start () {
-     
-         mainCamera = GameObject.Find("Main Camera");
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 4);
+
+    
+        mainCamera = GameObject.Find("Main Camera");                // get the camera object
+        spawnLocation = mainCamera.transform.position;              // get starting position of cam
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 4);  // move the camera foward 
 	} // end start
-	
-	// Update is called once per frame
-	void Update () {
-        camPos = GetComponent<Rigidbody>().position.z;   
-   
-		
-	} //end update
+
+    //******************************************************************************************************************************
+    // Update is called once per frame
+    void Update() {
+        camPos = GetComponent<Rigidbody>().position.z;
+
+
+    } //end update
+
+    //******************************************************************************************************************************
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("trigger"))
         {
-            mainCamera.transform.Translate(0, -4.16822f, -22f);    // hardcoded starting location for debugging
+            mainCamera.transform.position = (spawnLocation);    //  resets the camera at starting location
+            
 
         } // end if
-    } // end OnTriggerEnter
 
+    } // end OnTriggerEnter
+    //******************************************************************************************************************************
 }// end CamMov
