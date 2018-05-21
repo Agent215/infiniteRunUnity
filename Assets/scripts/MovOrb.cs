@@ -1,7 +1,7 @@
 ﻿/*MovOrb.cs
  * Abraham Schultz
  * 
- * Last edited 5/9//2018
+ * Last edited 5/21//2018
  * 
  * This is a script to move the player in an endless run down a hallway
  * Input for movment is read in from the keyboard.
@@ -17,6 +17,7 @@ using LockingPolicy = Thalmic.Myo.LockingPolicy;
 using Pose = Thalmic.Myo.Pose;
 using UnlockType = Thalmic.Myo.UnlockType;
 using VibrationType = Thalmic.Myo.VibrationType;
+using UnityEngine.SceneManagement;
 
 public class MovOrb : MonoBehaviour {
 
@@ -26,12 +27,10 @@ public class MovOrb : MonoBehaviour {
     //objects in game
     public GameObject player;     // game object for player
     public GameObject mainCamera;
-    public float playerPos;               // Starting position of player
+    public Vector3 playerPos;               // Starting position of player
     public float horizVel = 0;           //hortizontal velocity of player
     public int laneNumber = 2;           // hold current lane player is in. L= 1 , M=2 , R =3
     private bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
-
-
     // Myo game object to connect with.
     // This object must have a ThalmicMyo script attached.
     public GameObject myo = null;
@@ -39,19 +38,21 @@ public class MovOrb : MonoBehaviour {
     // so that actions are only performed upon making them rather than every frame during
     // which they are active.
     private Pose _lastPose = Pose.Unknown;
-
+    //******************************************************************************************************************************
     // Use this for initialization
     void Start()
     {
         mainCamera = GameObject.Find("Main Camera");
         player = GameObject.Find("player");
+        playerPos = player.transform.position; // starting position to respawn at. 
     }// end start
-	
-	// Update is called once per frame
-	void Update ()
+
+     //******************************************************************************************************************************
+     // Update is called once per frame
+    void Update ()
     {
-        playerPos = GetComponent<Rigidbody>().position.z;                   //set player position
-        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 4);  // move player hardcoded for debugging 
+        
+        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 4);  // move player forward ,hardcoded for debugging 
 
         // Access the ThalmicMyo component attached to the Myo object.
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
@@ -109,7 +110,22 @@ public class MovOrb : MonoBehaviour {
             controlLocked = true;
         }// end if
 
+        
     }// end update
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacle"))
+        {
+            SceneManager.LoadScene("GameOver");
+            mainCamera.GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);    // stops the camera if the ball hits an obstacle 
+            player.GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);        // stops player when hits obstacle
+        } // end if
+
+    } // end OnTriggerEnter
+
+
+    //******************************************************************************************************************************
 
     // method to stop player after half second of horizontal movement. 
     IEnumerator StopSlide() {
@@ -120,7 +136,7 @@ public class MovOrb : MonoBehaviour {
     }// end stopSlide
 
 
-
+    //******************************************************************************************************************************
     // Extend the unlock if ThalmcHub's locking policy is standard, and notifies the given myo that a user action was
     // recognized.
 
@@ -134,5 +150,7 @@ public class MovOrb : MonoBehaviour {
         }
 
         myo.NotifyUserAction();
-    }
+    } // end ExtendUnlockAndNotifyUserAction
+    //******************************************************************************************************************************
+
 } // end MovOrb
