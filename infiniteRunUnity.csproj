@@ -295,9 +295,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Myo Samples\Scripts\ColorBoxByPose.cs" />
-    <Compile Include="Assets\Myo Samples\Scripts\JointOrientation.cs" />
-    <Compile Include="Assets\Myo Samples\Scripts\SampleSceneGUI.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\EventTypes.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\Hub.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\libmyo.cs" />
@@ -310,6 +307,10 @@
     <Compile Include="Assets\Myo\Scripts\ThalmicMyo.cs" />
     <Compile Include="Assets\scripts\CamMov.cs" />
     <Compile Include="Assets\scripts\MovOrb.cs" />
+    <Compile Include="Assets\scripts\Myo Samples\Scripts\ColorBoxByPose.cs" />
+    <Compile Include="Assets\scripts\Myo Samples\Scripts\JointOrientation.cs" />
+    <Compile Include="Assets\scripts\Myo Samples\Scripts\SampleSceneGUI.cs" />
+    <Compile Include="Assets\scripts\sceneMan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Myo\README-MyoUnity.txt" />
