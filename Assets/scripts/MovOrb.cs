@@ -25,7 +25,7 @@ public class MovOrb : MonoBehaviour {
     public KeyCode moveLeft;
     public KeyCode moveRight;
     //objects in game
-    public GameObject player;     // game object for player
+    public GameObject pet;     // game object for player
     public GameObject mainCamera;
     public Vector3 playerPos;               // Starting position of player
     public float horizVel = 0;           //hortizontal velocity of player
@@ -43,8 +43,8 @@ public class MovOrb : MonoBehaviour {
     void Start()
     {
         mainCamera = GameObject.Find("Main Camera");
-        player = GameObject.Find("player");
-        playerPos = player.transform.position; // starting position to respawn at. 
+        pet = GameObject.Find("Pet");
+        playerPos = pet.transform.position; // starting position to respawn at. 
     }// end start
 
      //******************************************************************************************************************************
@@ -52,49 +52,49 @@ public class MovOrb : MonoBehaviour {
     void Update ()
     {
         
-        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 4);  // move player forward ,hardcoded for debugging 
+        pet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, horizVel);  // move player forward ,hardcoded for debugging 
 
-        // Access the ThalmicMyo component attached to the Myo object.
-        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
+        //// Access the ThalmicMyo component attached to the Myo object.
+        //ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
 
-        // Update references when the pose becomes fingers spread or the q key is pressed.
+        //// Update references when the pose becomes fingers spread or the q key is pressed.
         
 
 
-        // input to move ball from myo armband
-        if (thalmicMyo.pose != _lastPose)
-        {
-            _lastPose = thalmicMyo.pose;
+        //// input to move ball from myo armband
+        //if (thalmicMyo.pose != _lastPose)
+        //{
+        //    _lastPose = thalmicMyo.pose;
 
-            if (thalmicMyo.pose == Pose.WaveIn)
-            {
+        //    if (thalmicMyo.pose == Pose.WaveIn)
+        //    {
                 
 
-                horizVel = -2;                //move left
-                StartCoroutine(StopSlide());  // stop move
-                laneNumber -= 1;
-                controlLocked = true;
-                ExtendUnlockAndNotifyUserAction(thalmicMyo);
-            } // end if
+        //        horizVel = -2;                //move left
+        //        StartCoroutine(StopSlide());  // stop move
+        //        laneNumber -= 1;
+        //        controlLocked = true;
+        //        ExtendUnlockAndNotifyUserAction(thalmicMyo);
+        //    } // end if
 
-            if (thalmicMyo.pose == Pose.WaveOut)
-            {
+        //    if (thalmicMyo.pose == Pose.WaveOut)
+        //    {
                 
 
-                horizVel = +2;                //move left
-                StartCoroutine(StopSlide());  // stop move
-                laneNumber += 1;
-                controlLocked = true;
-                ExtendUnlockAndNotifyUserAction(thalmicMyo);
-            } // end if
-        }// end if
+        //        horizVel = +2;                //move left
+        //        StartCoroutine(StopSlide());  // stop move
+        //        laneNumber += 1;
+        //        controlLocked = true;
+        //        ExtendUnlockAndNotifyUserAction(thalmicMyo);
+        //    } // end if
+        //}// end if
 
 
 
         //if player presses left button and is not in left most lane already.
         if (Input.GetKeyDown(moveLeft) && (laneNumber >1) && (!controlLocked)) {
 
-            horizVel = -2;                //move left
+            horizVel = +2;                //move left
             StartCoroutine(StopSlide());  // stop move
             laneNumber -= 1;
             controlLocked = true;
@@ -104,7 +104,7 @@ public class MovOrb : MonoBehaviour {
         if (Input.GetKeyDown(moveRight) && (laneNumber <3) && (!controlLocked))
         {
 
-            horizVel = +2;                //move left
+            horizVel = -2;                //move right
             StartCoroutine(StopSlide());  // stop move
             laneNumber += 1;
             controlLocked = true;
@@ -119,7 +119,7 @@ public class MovOrb : MonoBehaviour {
         {
             SceneManager.LoadScene("GameOver");
             mainCamera.GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);    // stops the camera if the ball hits an obstacle 
-            player.GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);        // stops player when hits obstacle
+            pet.GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);        // stops player when hits obstacle
         } // end if
 
     } // end OnTriggerEnter
