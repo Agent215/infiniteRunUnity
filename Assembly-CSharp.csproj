@@ -71,17 +71,18 @@
     <Compile Include="Assets\Myo\Scripts\ThalmicMyo.cs" />
     <Compile Include="Assets\scripts\CamMov.cs" />
     <Compile Include="Assets\scripts\GameControl.cs" />
+    <Compile Include="Assets\scripts\HallCam.cs" />
     <Compile Include="Assets\scripts\MovOrb.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\ColorBoxByPose.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\JointOrientation.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\SampleSceneGUI.cs" />
     <Compile Include="Assets\scripts\sceneMan.cs" />
     <None Include="Assets\Myo\README-MyoUnity.txt" />
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/unity/unityInstall/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
