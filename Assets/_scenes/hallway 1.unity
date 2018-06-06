@@ -205,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253806069}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.5, z: 3.4600005}
+  m_LocalPosition: {x: -0, y: -0.5, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1077428356}
@@ -398,6 +398,8 @@ MonoBehaviour:
   Tunnel2: {fileID: 0}
   Tunnel3: {fileID: 0}
   Everything: {fileID: 0}
+  Obstacle: {fileID: 4275951900673342, guid: 05917675ca69d824db84a47e16d2dccd, type: 2}
+  Obstacle_1: {fileID: 0}
   EveryPos: {x: 0, y: 0, z: 0}
   distance: 0
   velocity: 0
@@ -416,11 +418,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveLeft: 97
   moveRight: 100
+  speedUp: 119
+  slowDown: 115
   pet: {fileID: 0}
   mainCamera: {fileID: 0}
   playerPos: {x: 0, y: 0, z: 0}
   horizVel: 0
   laneNumber: 2
+  distanceLane: 2
+  gameControl: {fileID: 0}
+  startMarker: {fileID: 253806070}
+  lerpTime: 2
+  lerpDistance: 2
   myo: {fileID: 0}
 --- !u!4 &565145725 stripped
 Transform:
@@ -626,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1077428351}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: -100, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 253806070}
@@ -676,7 +685,7 @@ GameObject:
   - component: {fileID: 1741416826}
   - component: {fileID: 1741416825}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +933,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.06407974, g: 0.72906363, b: 0.9056604, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

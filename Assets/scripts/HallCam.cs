@@ -18,12 +18,14 @@ public class HallCam : MonoBehaviour {
     public GameObject Tunnel2;
     public GameObject Tunnel3;
     public GameObject Everything;
+    public Transform Obstacle;
+    public GameObject Obstacle_1;
     public Vector3 EveryPos;
     private Vector3 SceneRotation;
 
     //Camera
     Camera mainCam;
-    private Vector3 camPos = new Vector3(-10f, 1f, 0);
+    private Vector3 camPos = new Vector3(-100f, 1f, 0);
     private Vector3 camRotation;
 
     //velocity accuracy
@@ -31,15 +33,18 @@ public class HallCam : MonoBehaviour {
     public float velocity;
     public float tempo;
 
-
+    // speed 
+    [SerializeField]
     public float outputSpeed;
 
 
     // Use this for initialization
     void Start () {
 
+
+       
         //set speed harcoded for debugging
-        outputSpeed = 5;
+        outputSpeed = 3;
 
         Tunnel1 = GameObject.Find("Tunnel 1");
         Tunnel2 = GameObject.Find("Tunnel 2");
@@ -53,6 +58,9 @@ public class HallCam : MonoBehaviour {
 	void FixedUpdate () {
 
 
+        //Obstacle_1 = GameObject.Find("obstacle 1(Clone)");
+        //Obstacle_1.transform.Translate(-outputSpeed / 20, 0, 0);
+
         mainCam.transform.position = camPos;
         // Get & Set Planes Positions //
         pos_x1 = Tunnel1.transform.position.x;
@@ -61,24 +69,39 @@ public class HallCam : MonoBehaviour {
         Everything.transform.position = EveryPos;
 
 
-
+        //move tunnel pieces 
         Tunnel1.transform.Translate(-outputSpeed / 20, 0, 0);
         Tunnel2.transform.Translate(-outputSpeed / 20, 0, 0);
         Tunnel3.transform.Translate(-outputSpeed / 20, 0, 0);
 
+        //check tunnel locations 
         if (pos_x1 < -110)
         {
             Tunnel1.transform.position = new Vector3(pos_x3 + 99.8f, 0, 0);
+
         }
         if (pos_x2 < -110)
         {
             Tunnel2.transform.position = new Vector3(pos_x1 + 99.8f, 0, 0);
+          
         }
         if (pos_x3 < -110)
         {
             Tunnel3.transform.position = new Vector3(pos_x2 + 99.8f, 0, 0);
         }
 
+       
+
     }// end FixedUpdate
+
+    //setter 
+    public void SetSpeed(float speedIn) {
+        outputSpeed = speedIn;
+    }// end setSpeed
+
+    //Getter
+    public float GetSpeed() {
+        return outputSpeed;
+    }// end GetSpeed
 
 } //end HallCam
