@@ -26,7 +26,7 @@ public class HallCam : MonoBehaviour {
 
     //Camera
     Camera mainCam;
-    private Vector3 camPos = new Vector3(-105f, 4f, 0);
+    private Vector3 camPos ;
     private Vector3 camRotation;
 
     //velocity accuracy
@@ -68,13 +68,13 @@ public class HallCam : MonoBehaviour {
 	void FixedUpdate () {
 
 
-
+        // obstacles will have thier own script later
         Obstacle_1 = GameObject.Find("obstacle 1(Clone)");
       
         //move obstacle 1
         Obstacle_1.transform.Translate(-outputSpeed / 20, 0, 0);
 
-        mainCam.transform.position = camPos;
+       
         // Get & Set Planes Positions //
         pos_x1 = Tunnel1.transform.position.x;
         pos_x2 = Tunnel2.transform.position.x;

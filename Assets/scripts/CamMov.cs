@@ -3,10 +3,9 @@
  * 
  * Last edited 5/21//2018
  * 
- * This is a script to move the camera in an endless run down a hallway
- * 
- * 
- * 
+ * This is a script to move the camera in an endless run down a hallway.
+ * In this case because the camera will eventually be replaced with a VR camera rig, it can also be
+ * thought of as the player. So that this is intended to be a first person experience.
  * 
  */
 
@@ -14,64 +13,108 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMov : MonoBehaviour {
+public class CamMov : MonoBehaviour
+{
 
-    
-    public float camPos;          // current point of camera 
-    public GameObject mainCamera;  // main cam
-    private Vector3 spawnLocation;  // location cam spawns at after resetting 
-    private GameObject ground;      // hold ground object
-    private Vector3 groundStart;    //exact location where the ground object begins
-    private float groundZ;  // starting point in the z axis for ground
-    private float groundY;  // should not change
-    private float groundX;  // should not change
+
+
+    // lerp variables to move pet smoothly based on speed of movement.
+    public Transform startMarker;
+    public float lerpTime = 1.5F;
+    public float lerpDistance = 3.0F;
+   
+
+
+    //movements and controls
+    public KeyCode moveLeft;
+    public KeyCode moveRight;
+    public KeyCode speedUp;
+    public KeyCode slowDown;
+    public int laneNumber = 2;       //  horizontal current lane camera is in. L= 1 , M=2 , R =3
+
+    public Vector3 camPos;          // current point of camera 
+    public GameObject mainCamera;  // main camera object
+
+    public bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
+
 
 
     //******************************************************************************************************************************
     // Use this for initialization
-    void Start () {
-                                     
+    void Start()
+    {
+
         mainCamera = GameObject.Find("Main Camera");                // get the camera object
-        spawnLocation = mainCamera.transform.position;              // get starting position of cam
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 4);  // move the camera foward 
-        ground = GameObject.Find("ground(Clone)");
+        camPos = mainCamera.transform.position;                    //set cam position at origin
+
     } // end start
 
     //******************************************************************************************************************************
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
+        camPos = mainCamera.transform.position;                    //set cam position at origin
+       
 
-        
-
-        groundX = ground.transform.position.x;
-        groundY = ground.transform.position.y;
-        camPos = mainCamera.transform.position.z;
-        groundZ = ground.transform.position.z - 2* ground.transform.position.z;  // starting point in z axis
-        groundStart = new Vector3(groundX, groundY, groundZ);        
+        // ------------------------Movement and Controls-------------------------------------------------------------------------------
 
 
-        if (camPos > ground.transform.position.z ) {
 
+        //move left
+        if (Input.GetKeyDown(moveLeft) && (laneNumber > 1) && (!controlLocked))
+        {
+            StartCoroutine(MoveSmoothley(mainCamera.GetComponent<Transform>(),
+                       mainCamera.GetComponent<Transform>().position,
+                       new Vector3(camPos.x, camPos.y,
+                       camPos.z + lerpDistance), lerpTime));
+          
+            laneNumber -= 1;
+            controlLocked = true;
+        }// end if
 
-            mainCamera.transform.position = (groundStart);  // move to begining of ground
-        }
+        //move right
+        if (Input.GetKeyDown(moveRight) && (laneNumber < 3) && (!controlLocked))
+        {
 
-
+            StartCoroutine(MoveSmoothley(mainCamera.GetComponent<Transform>(),
+                         mainCamera.GetComponent<Transform>().position,
+                         new Vector3(camPos.x, camPos.y,
+                        camPos.z - lerpDistance), lerpTime));
+         
+            laneNumber += 1;
+            controlLocked = true;
+        }// end if
 
 
     } //end update
 
+   
     //******************************************************************************************************************************
 
-    private void OnTriggerEnter(Collider other)
+    // this method moves the camera object smoothley between two Vector3 points.  Time here is the time the transition takes
+
+    IEnumerator MoveSmoothley(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
-        if (other.gameObject.CompareTag("trigger"))
+        var i = 0.0f;
+        var rate = 1.0f / time;
+        while (i < 1.0f)
+
         {
-            mainCamera.transform.position = (spawnLocation);    //  resets the camera at starting location
+            i += Time.deltaTime * rate;
+            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             
+            yield return null;
+        }//end while
 
-        } // end if
+        controlLocked = false;
 
-    } // end OnTriggerEnter
+    }  // end Move Smoothley
+
     //******************************************************************************************************************************
+
+
 }// end CamMov
+
+
+
+

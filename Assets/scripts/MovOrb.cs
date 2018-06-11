@@ -24,11 +24,12 @@ public class MovOrb : MonoBehaviour {
     public KeyCode moveRight;
     public KeyCode speedUp;
     public KeyCode slowDown;
+    public float radius;  // radius for polar coordinates
 
     //objects in game
     public GameObject pet;                   // game object for player
     public GameObject mainCamera;
-    public Vector3 playerPos;               // Starting position of player
+    public Vector3 petPos;               // Starting position of pet
     public float horizVel = 0;             //hortizontal velocity of player
     public int laneNumber = 2;            //  horizontal current lane pet is in. L= 1 , M=2 , R =3
     public int distanceLane = 2;         // how close or far pet is from camera. close= 1 , medium=2 , far =3
@@ -38,8 +39,8 @@ public class MovOrb : MonoBehaviour {
 
     // lerp variables to move pet smoothly based on speed of movement.
     public Transform startMarker;
-    public float lerpTime = 2.0F;
-    public float lerpDistance = 2.0F;
+    public float lerpTime = 1.5F;
+    public float lerpDistance = 1.0F;
     private float startTime;
    
 
@@ -62,9 +63,9 @@ public class MovOrb : MonoBehaviour {
         gameControl = GameObject.Find("Game Control");
         mainCamera = GameObject.Find("Main Camera");
         pet = GameObject.Find("Pet");
-
+    
         //set variables
-        playerPos = pet.transform.position;
+        petPos = pet.transform.position;
 
         //set time and journey length for lerp
         startTime = Time.time;
@@ -76,13 +77,15 @@ public class MovOrb : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        laneNumber = gameControl.GetComponent<CamMov>().laneNumber;
+
         //update speed
         speed = gameControl.GetComponent<HallCam>().outputSpeed;
 
         //move pet left or right
-        pet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, horizVel);
-  
-    
+        //pet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, horizVel);
+
+
 
         //// Access the ThalmicMyo component attached to the Myo object.
         //ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
@@ -121,11 +124,16 @@ public class MovOrb : MonoBehaviour {
 
         // ------------------------Movement and Controls-------------------------------------------------------------------------------
 
-        //move left
-        if (Input.GetKeyDown(moveLeft) && (laneNumber > 1) && (!controlLocked)) {
 
-            horizVel = +2;                //move left
-            StartCoroutine(StopSlide());  // stop move
+        //move left
+        if (Input.GetKeyDown(moveRight) && (laneNumber > 1) && (!controlLocked))
+        {
+            
+            StartCoroutine(MovePet(pet.GetComponent<Transform>(),
+                       pet.GetComponent<Transform>().position,
+                       new Vector3(petPos.x, petPos.y,
+                       petPos.z + lerpDistance), lerpTime));
+
             laneNumber -= 1;
             controlLocked = true;
         }// end if
@@ -133,60 +141,64 @@ public class MovOrb : MonoBehaviour {
         //move right
         if (Input.GetKeyDown(moveRight) && (laneNumber < 3) && (!controlLocked))
         {
+            
+            StartCoroutine(MovePet(pet.GetComponent<Transform>(),
+                         pet.GetComponent<Transform>().position,
+                         new Vector3(petPos.x, petPos.y,
+                        petPos.z - lerpDistance), lerpTime));
 
-            horizVel = -2;                //move right
-            StartCoroutine(StopSlide());  // stop move
             laneNumber += 1;
             controlLocked = true;
         }// end if
 
-        // speed up
-        if (Input.GetKeyDown(speedUp) && !(speed >= 10) && (!controlLocked)) {
-         
-        //increase speed of tunnel
-        gameControl.GetComponent<HallCam>().SetSpeed(speed + 2);
-         
-            // if pet is close to camera
-            if(distanceLane < 3)
-            {
+
+        //// speed up
+        //if (Input.GetKeyDown(speedUp) && !(speed >= 10) && (!controlLocked)) {
+
+        ////increase speed of tunnel
+        //gameControl.GetComponent<HallCam>().SetSpeed(speed + 2);
+
+        //    // if pet is close to camera
+        //    if(distanceLane < 3)
+        //    {
 
 
-                //move the ball foward by 2, over a period of 2 seconds, 
-                StartCoroutine(MovePet(pet.GetComponent<Transform>(),
-                           pet.GetComponent<Transform>().position,
-                           new Vector3(startMarker.position.x + lerpDistance, startMarker.position.y,
-                           startMarker.position.z), lerpTime));
+        //        //move the ball foward by 2, over a period of 2 seconds, 
+        //        StartCoroutine(MovePet(pet.GetComponent<Transform>(),
+        //                   pet.GetComponent<Transform>().position,
+        //                   new Vector3(startMarker.position.x + lerpDistance, startMarker.position.y,
+        //                   startMarker.position.z), lerpTime));
 
-                controlLocked = true;                //lock control
-                distanceLane += 1;
-                StartCoroutine(UnLockControl(lerpTime));   // unlock after 2 seconds, 
+        //        controlLocked = true;                //lock control
+        //        distanceLane += 1;
+        //        StartCoroutine(UnLockControl(lerpTime));   // unlock after 2 seconds, 
 
-            }// end if
-        
-        }// end if
+        //    }// end if
 
-        // slow down 
-        if (Input.GetKeyDown(slowDown) && !(speed <= 2) && (!controlLocked))
-        {
+        //}// end if
 
-        //decrease the speed of the tunnel
-         gameControl.GetComponent<HallCam>().SetSpeed(speed - 2);
+        //// slow down 
+        //if (Input.GetKeyDown(slowDown) && !(speed <= 2) && (!controlLocked))
+        //{
 
-            if (distanceLane > 1) {
-                // move the ball backward by 2, over a period of 2 seconds, 
-                StartCoroutine(MovePet(pet.GetComponent<Transform>(),
-                           pet.GetComponent<Transform>().position,
-                           new Vector3(startMarker.position.x - lerpDistance, startMarker.position.y,
-                           startMarker.position.z), lerpTime));
+        ////decrease the speed of the tunnel
+        // gameControl.GetComponent<HallCam>().SetSpeed(speed - 2);
 
-            controlLocked = true;
-            distanceLane -= 1;
-            StartCoroutine(UnLockControl(lerpTime));    // unlock after 2 seconds,  
-            }// end if
+        //    if (distanceLane > 1) {
+        //        // move the ball backward by 2, over a period of 2 seconds, 
+        //        StartCoroutine(MovePet(pet.GetComponent<Transform>(),
+        //                   pet.GetComponent<Transform>().position,
+        //                   new Vector3(startMarker.position.x - lerpDistance, startMarker.position.y,
+        //                   startMarker.position.z), lerpTime));
+
+        //    controlLocked = true;
+        //    distanceLane -= 1;
+        //    StartCoroutine(UnLockControl(lerpTime));    // unlock after 2 seconds,  
+        //    }// end if
 
 
-  
-        }// end if
+
+        //}// end if
 
 
 
@@ -209,13 +221,12 @@ public class MovOrb : MonoBehaviour {
 
     //******************************************************************************************************************************
 
-    // method to stop player after half second of horizontal movement. 
-    IEnumerator StopSlide() {
+    // method to wait 
+    IEnumerator Wait() {
 
         yield return new WaitForSeconds(.5f);
-        horizVel = 0;
-        controlLocked = false;
-    }// end stopSlide
+        
+    }// end wait
 
     //******************************************************************************************************************************
 
@@ -252,6 +263,7 @@ public class MovOrb : MonoBehaviour {
 
     IEnumerator MovePet(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
+        
         var i = 0.0f;
         var rate = 1.0f / time;
         while (i < 1.0f)
@@ -262,6 +274,7 @@ public class MovOrb : MonoBehaviour {
             yield return null;
         }//end while
 
+        controlLocked = false;
     }//end MovePet
      //******************************************************************************************************************************
 
