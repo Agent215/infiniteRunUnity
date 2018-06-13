@@ -10,21 +10,16 @@
  */
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CamMov : MonoBehaviour
 {
 
-
-
     // lerp variables to move pet smoothly based on speed of movement.
     public Transform startMarker;
-    public float lerpTime = 1.5F;
-    public float lerpDistance = 3.0F;
+    public float lerpTime;
+    public float lerpDistance;
    
-
-
     //movements and controls
     public KeyCode moveLeft;
     public KeyCode moveRight;
@@ -32,33 +27,45 @@ public class CamMov : MonoBehaviour
     public KeyCode slowDown;
     public int laneNumber = 2;       //  horizontal current lane camera is in. L= 1 , M=2 , R =3
 
+    public float speed;
+
     public Vector3 camPos;          // current point of camera 
     public GameObject mainCamera;  // main camera object
+    private GameObject gameControl; 
 
     public bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
-
 
 
     //******************************************************************************************************************************
     // Use this for initialization
     void Start()
     {
+        //assign objects from hiearchy
+        mainCamera = GameObject.Find("Main Camera");
+        gameControl = GameObject.Find("Game Control");
 
-        mainCamera = GameObject.Find("Main Camera");                // get the camera object
-        camPos = mainCamera.transform.position;                    //set cam position at origin
+        //initialize variables
+        lerpTime = 1.0f;
+        lerpDistance = 3.0f;
+        speed = gameControl.GetComponent<HallCam>().outputSpeed;
+
+   
+        //initialize camera position at origin
+        camPos = mainCamera.transform.position;                   
 
     } // end start
 
     //******************************************************************************************************************************
+
     // Update is called once per frame
     void Update()
     {
-        camPos = mainCamera.transform.position;                    //set cam position at origin
+
+        //update camera position
+        camPos = mainCamera.transform.position;                    
        
 
-        // ------------------------Movement and Controls-------------------------------------------------------------------------------
-
-
+        // ------------------------Movement and Controls----------------------------------------------
 
         //move left
         if (Input.GetKeyDown(moveLeft) && (laneNumber > 1) && (!controlLocked))
@@ -86,9 +93,26 @@ public class CamMov : MonoBehaviour
         }// end if
 
 
+        //speed up
+        if (Input.GetKey(speedUp) && !(speed > 10)) {
+
+            speed += .02F;
+            gameControl.GetComponent<HallCam>().SetSpeed(speed);
+
+        }// end if
+
+        //slow down
+        if (Input.GetKey(slowDown) && !(speed < 1))
+        {
+            speed -= .02F;
+            gameControl.GetComponent<HallCam>().SetSpeed(speed);
+
+        }// end if
+
+
     } //end update
 
-   
+
     //******************************************************************************************************************************
 
     // this method moves the camera object smoothley between two Vector3 points.  Time here is the time the transition takes

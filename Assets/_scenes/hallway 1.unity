@@ -205,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253806069}
   m_LocalRotation: {x: 0.09229593, y: 0.7010574, z: -0.09229593, w: 0.7010574}
-  m_LocalPosition: {x: -94.45, y: 0.4458847, z: 0}
+  m_LocalPosition: {x: -90, y: 0.4458847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -426,18 +426,17 @@ MonoBehaviour:
   moveRight: 100
   speedUp: 119
   slowDown: 115
+  radiusModifier: 0
   radius: 0
   pet: {fileID: 0}
   mainCamera: {fileID: 0}
-  petPos: {x: 0, y: 0, z: 0}
-  horizVel: 0
-  laneNumber: 2
-  distanceLane: 2
   gameControl: {fileID: 0}
-  startMarker: {fileID: 253806070}
+  petCartesianTarget: {x: 0, y: 0, z: 0}
+  petPos: {x: 0, y: 0, z: 0}
+  playerPos: {x: 0, y: 0, z: 0}
+  laneNumber: 2
   lerpTime: 2
   lerpDistance: 2
-  myo: {fileID: 0}
 --- !u!114 &369540789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +456,7 @@ MonoBehaviour:
   speedUp: 119
   slowDown: 115
   laneNumber: 2
+  speed: 0
   camPos: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 0}
   controlLocked: 0
