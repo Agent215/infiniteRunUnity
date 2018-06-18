@@ -42,7 +42,8 @@ public class MovOrb : MonoBehaviour {
     //objects in game
     public GameObject pet;                
     public GameObject mainCamera;
-    public GameObject gameControl;        
+    public GameObject gameControl;
+    public Transform petTransform;
 
     //Locations in space
     public Vector3 petCartesianTarget;
@@ -63,8 +64,7 @@ public class MovOrb : MonoBehaviour {
     public float lerpTime; 
     public float lerpDistance;
    
-   
-
+  
     //******************************************************************************************************************************
     // Use this for initialization
     void Start()
@@ -77,21 +77,20 @@ public class MovOrb : MonoBehaviour {
         //set variables
         petPos = pet.transform.position;
         playerPos = mainCamera.transform.position;
-        lerpTime = 1.0F;
+        lerpTime = .50F;
         lerpDistance = 3.0F;
-        radiusModifier = 1.0F;
+        radiusModifier = 0.0F;
+        petTransform = pet.transform;
 
         //create new spericacl coordinates, (Vector3, radius min, radius max , min polar, max polar, min elevvation , max elevation)
         petPolarCoord = new SphericalCoordinates(petPos,1f,200f, 0f, (Mathf.PI * 2f), 0f , (Mathf.PI / 3f));
         playerPolarCoord = new SphericalCoordinates(playerPos, 1f, 200f, 0f, (Mathf.PI * 2f), 0f, (Mathf.PI / 3f));
         petPolarTarget = new SphericalCoordinates(petPos, 1f, 200f, 0f, (Mathf.PI * 2f), 0f, (Mathf.PI / 3f));
 
-
         //set spherical coordinates
         petPolarCoord = petPolarCoord.FromCartesian(petPos);
         playerPolarCoord = playerPolarCoord.FromCartesian(playerPos);
-
-        radius = petPolarCoord.toCartesian.x;
+     
 
         // debugging
         Debug.Log(playerPolarCoord.ToString() + "this is the players polar coordinates");
@@ -107,12 +106,12 @@ public class MovOrb : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         //update player position
         playerPos = mainCamera.transform.position;
         petPos = pet.transform.position;
         playerPolarCoord = playerPolarCoord.FromCartesian(playerPos);
         petPolarCoord = petPolarCoord.FromCartesian(petPos);
-
        
         //update lane number
         laneNumber = gameControl.GetComponent<CamMov>().laneNumber;
@@ -123,58 +122,67 @@ public class MovOrb : MonoBehaviour {
         //set the targets coordinates for the pet to be whatever the players is,
         petPolarTarget = playerPolarCoord;
 
+        petPolarTarget.SetRadius(petPolarCoord.radius);
+
+        Debug.Log(petPolarCoord.ToString() + "this is the pets polar coordinates");
+        Debug.Log(petPolarTarget.ToString() + "this is the pets targets polar coordinates");
+
         //update radius
-        radius = petPolarCoord.radius;
+        //radius = petPolarCoord.radius;
+
+
+        if (radius > 95)
+            radiusModifier = 0.0f;
+        if (radius < 75)
+            radiusModifier = 0.0f;
+
+
+        ////if we are speeding up move pet closer. but stop at radius of 96.
+        //if ((Input.GetKey(speedUp)) && (radius < 96))
+        //{
+        //    radiusModifier = 1.0f;
+
+        //}// end if
+
+
+        ////if we are slowing down move pet farther away
+        //if ((Input.GetKey(slowDown)) && (radius > 76))
+        //{
+        //    radiusModifier  = - 1.0f;
+
+        //}// end if
+
+
 
 
         //set target for pet to move towards depending on various input.
         // we can change these later as neeeded. 
-        petPolarTarget.SetRadius(radius);
-
-        //if we are speeding up move pet closer
-        if ((Input.GetKeyDown(speedUp)))
-        {
-
-            radius -= radiusModifier;
-            petPolarTarget.SetRadius(radius);
-            petPolarCoord.SetRadius(radius);
-
-        }// end if
 
 
-        //if we are slowing down move pet farther away
-        if ( (Input.GetKeyDown(slowDown)))
-        {
+        petPolarTarget.TranslateRadius(radiusModifier);
 
-            radius += radiusModifier;
-            petPolarTarget.SetRadius(radius);
-            petPolarCoord.SetRadius(radius);
 
-        }// end if
 
         //pets polar angle will be the same as the player
-        petPolarTarget.SetPolarAngle(petPolarTarget.polar);
+        // petPolarTarget.SetPolarAngle(petPolarTarget.polar);
 
-        // back to Vector3 coordinates to be used in lerp function
+        // convert back to Vector3 coordinates to be used in lerp function
         petCartesianTarget = petPolarTarget.toCartesian;
 
-        // y axis offset for ground level
+        // modify y axis offset for ground level
         petCartesianTarget.y = GROUND_LEVEL;
 
-
-        // debuging
+        // debuging to check variables 
         Debug.Log(playerPolarCoord.ToString() + "this is the players polar coordinates");
-        Debug.Log(petPolarCoord.ToString() + "this is the pets polar coordinates");
-        Debug.Log(petPolarTarget.ToString() + "this is the pets targets polar coordinates");
+       
         Debug.Log(petCartesianTarget.ToString() + "this is the pets cartesian target coordinates");
         Debug.Log(playerPolarCoord.toCartesian.ToString() + "players cartesian coordinates");
 
-        // move the pet to follow the player
-        StartCoroutine
-                    (MovePet(pet.GetComponent<Transform>(),
-                     pet.GetComponent<Transform>().position,
-                     petCartesianTarget, lerpTime));
+        // start a coroutine which calls the MovePet method to move the pet.
+        StartCoroutine ( MovePet ( petTransform, petPos, petCartesianTarget, lerpTime) );
 
+       
+        
     }// end update
 
     //******************************************************************************************************************************
@@ -198,18 +206,26 @@ public class MovOrb : MonoBehaviour {
 
     IEnumerator MovePet(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
-        
+
+
         var i = 0.0f;
         var rate = 1.0f / time;
         while (i < 1.0f)
 
         {
+
             i += Time.deltaTime * rate;
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;
+
         }//end while
 
+        // unlock controls
         controlLocked = false;
+
+        playerPos = mainCamera.transform.position;
+        petPos = pet.transform.position;
+
     }//end MovePet
      //******************************************************************************************************************************
 
