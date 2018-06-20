@@ -45,7 +45,7 @@ public class CamMov : MonoBehaviour
         gameControl = GameObject.Find("Game Control");
 
         //initialize variables
-        lerpTime = 1.0f;
+        lerpTime = 2.0f;
         lerpDistance = 3.0f;
         speed = gameControl.GetComponent<HallCam>().outputSpeed;
 

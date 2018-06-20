@@ -11,11 +11,11 @@
  * the pet is a simple sphere prefab for now. this will be replaced with an animal or character model.
  * 
  * The pet should follow the general direction of the player.
+ * as the player speeds up the pet gets closer.
+ * as the player slows down the pet gets farther away.
  * Because this will be implemented in VR, the player will be the camera.
  * 
- * In order to move the pet in a realitic fashion a class called SphericalCpprdinates.cs is used to 
- * convert from Vector3 cartesion coordinates to polar coordinates. Then we can perform a radial function on the
- * coordinates to move the pet in circular or curvy path.
+ * 
  * 
  */
 
@@ -30,15 +30,9 @@ public class MovOrb : MonoBehaviour {
     public KeyCode speedUp;
     public KeyCode slowDown;
 
-    //polar coordinates of objects
-    public SphericalCoordinates petPolarCoord;
-    public SphericalCoordinates playerPolarCoord;
-    public SphericalCoordinates petPolarTarget;
-
-    // use this to adjust the radius from the player to the pet
-    public float radiusModifier;
-    public float radius;
-
+    // use this to adjust the distance from the player to the pet
+    public float DistanceModifier;
+   
     //objects in game
     public GameObject pet;                
     public GameObject mainCamera;
@@ -53,18 +47,17 @@ public class MovOrb : MonoBehaviour {
     
     //track horizontal lane position of pet
     public int laneNumber = 2;            //   Left= 1 , Middle=2 , Right =3
-
-    // use to prevent rapid button mashing of controls. while false controls  will work.
-    private bool controlLocked = false;  
    
     // use to track speed relitive to tunnel 
     private float speed;              
 
     // lerp variables to move pet smoothly based on speed of movement.
     public float lerpTime; 
-    public float lerpDistance;
-   
-  
+    private float startTime;
+    private float journeyLength;
+    float distCovered;
+    float fracJourney;
+
     //******************************************************************************************************************************
     // Use this for initialization
     void Start()
@@ -77,26 +70,11 @@ public class MovOrb : MonoBehaviour {
         //set variables
         petPos = pet.transform.position;
         playerPos = mainCamera.transform.position;
-        lerpTime = .50F;
-        lerpDistance = 3.0F;
-        radiusModifier = 0.0F;
+        lerpTime = 0;
+        DistanceModifier = 10.0F;
         petTransform = pet.transform;
-
-        //create new spericacl coordinates, (Vector3, radius min, radius max , min polar, max polar, min elevvation , max elevation)
-        petPolarCoord = new SphericalCoordinates(petPos,1f,200f, 0f, (Mathf.PI * 2f), 0f , (Mathf.PI / 3f));
-        playerPolarCoord = new SphericalCoordinates(playerPos, 1f, 200f, 0f, (Mathf.PI * 2f), 0f, (Mathf.PI / 3f));
-        petPolarTarget = new SphericalCoordinates(petPos, 1f, 200f, 0f, (Mathf.PI * 2f), 0f, (Mathf.PI / 3f));
-
-        //set spherical coordinates
-        petPolarCoord = petPolarCoord.FromCartesian(petPos);
-        playerPolarCoord = playerPolarCoord.FromCartesian(playerPos);
-     
-
-        // debugging
-        Debug.Log(playerPolarCoord.ToString() + "this is the players polar coordinates");
-        Debug.Log(playerPolarCoord.toCartesian.ToString()+ "players cartesian coordinates");
-        Debug.Log(petPolarCoord.ToString() + "this is the pets polar coordinates");
-        Debug.Log(petPolarCoord.toCartesian.ToString() + "pets cartesian coordinates");
+        startTime = Time.time;
+        journeyLength = .0F;
 
 
 
@@ -104,15 +82,17 @@ public class MovOrb : MonoBehaviour {
 
     //******************************************************************************************************************************
     // Update is called once per frame
-    void Update()
+    void  FixedUpdate()
     {
-        
+
+        //update time
+        lerpTime = Time.deltaTime;
+
         //update player position
         playerPos = mainCamera.transform.position;
         petPos = pet.transform.position;
-        playerPolarCoord = playerPolarCoord.FromCartesian(playerPos);
-        petPolarCoord = petPolarCoord.FromCartesian(petPos);
-       
+     
+      
         //update lane number
         laneNumber = gameControl.GetComponent<CamMov>().laneNumber;
 
@@ -120,113 +100,36 @@ public class MovOrb : MonoBehaviour {
         speed = gameControl.GetComponent<HallCam>().outputSpeed;
 
         //set the targets coordinates for the pet to be whatever the players is,
-        petPolarTarget = playerPolarCoord;
+        petCartesianTarget = playerPos;
 
-        petPolarTarget.SetRadius(petPolarCoord.radius);
+        //debugging
+        Debug.Log(petPos.x + "this is the pets location in x axis");
 
-        Debug.Log(petPolarCoord.ToString() + "this is the pets polar coordinates");
-        Debug.Log(petPolarTarget.ToString() + "this is the pets targets polar coordinates");
+        //if we are speeding up move pet closer to player. but stop at player
+        if ((Input.GetKey(speedUp)) && (DistanceModifier > 4.5))
+            DistanceModifier -= .030f;
 
-        //update radius
-        //radius = petPolarCoord.radius;
-
-
-        if (radius > 95)
-            radiusModifier = 0.0f;
-        if (radius < 75)
-            radiusModifier = 0.0f;
+        //if we are slowing down move pet farther away but stop after distacne is to far
+        if ((Input.GetKey(slowDown))&& (DistanceModifier < 30))
+            DistanceModifier += .030f;
 
 
-        ////if we are speeding up move pet closer. but stop at radius of 96.
-        //if ((Input.GetKey(speedUp)) && (radius < 96))
-        //{
-        //    radiusModifier = 1.0f;
+        // set target
+        petCartesianTarget.Set(playerPos.x + DistanceModifier, GROUND_LEVEL, playerPos.z);
 
-        //}// end if
+        //get distance between current position and target vector
+        journeyLength = Vector3.Distance(petPos, petCartesianTarget);
 
+        // time since last frame
+        distCovered = Time.deltaTime ;
+        fracJourney = distCovered / journeyLength;
 
-        ////if we are slowing down move pet farther away
-        //if ((Input.GetKey(slowDown)) && (radius > 76))
-        //{
-        //    radiusModifier  = - 1.0f;
+        //linear interpolation between pet current location and pet new location
+        petTransform.position = Vector3.Lerp(petPos, petCartesianTarget, fracJourney);
 
-        //}// end if
+    }// end FixedUpdate
 
-
-
-
-        //set target for pet to move towards depending on various input.
-        // we can change these later as neeeded. 
-
-
-        petPolarTarget.TranslateRadius(radiusModifier);
-
-
-
-        //pets polar angle will be the same as the player
-        // petPolarTarget.SetPolarAngle(petPolarTarget.polar);
-
-        // convert back to Vector3 coordinates to be used in lerp function
-        petCartesianTarget = petPolarTarget.toCartesian;
-
-        // modify y axis offset for ground level
-        petCartesianTarget.y = GROUND_LEVEL;
-
-        // debuging to check variables 
-        Debug.Log(playerPolarCoord.ToString() + "this is the players polar coordinates");
-       
-        Debug.Log(petCartesianTarget.ToString() + "this is the pets cartesian target coordinates");
-        Debug.Log(playerPolarCoord.toCartesian.ToString() + "players cartesian coordinates");
-
-        // start a coroutine which calls the MovePet method to move the pet.
-        StartCoroutine ( MovePet ( petTransform, petPos, petCartesianTarget, lerpTime) );
-
-       
-        
-    }// end update
-
-    //******************************************************************************************************************************
-
-    // method to lock the controls
-    //waits desired amount of time then unlocks control
-    IEnumerator UnLockControl(float timeToWait)
-    {
-
-        yield return new WaitForSeconds(timeToWait);
-        controlLocked = false;
-
-    }// end LockControl
-
-
-
-    //******************************************************************************************************************************
+    //*****************************************************************************************************************************************
    
-
-    // this method moves the pet object smoothley between two Vector3 points.  Time here is the time the transition takes
-
-    IEnumerator MovePet(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-    {
-
-
-        var i = 0.0f;
-        var rate = 1.0f / time;
-        while (i < 1.0f)
-
-        {
-
-            i += Time.deltaTime * rate;
-            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-            yield return null;
-
-        }//end while
-
-        // unlock controls
-        controlLocked = false;
-
-        playerPos = mainCamera.transform.position;
-        petPos = pet.transform.position;
-
-    }//end MovePet
-     //******************************************************************************************************************************
 
 }// end MovOrb
