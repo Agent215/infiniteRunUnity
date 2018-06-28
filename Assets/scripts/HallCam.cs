@@ -17,8 +17,7 @@ public class HallCam : MonoBehaviour {
     public GameObject Tunnel2;
     public GameObject Tunnel3;
     public GameObject Everything;
-    public Transform Obstacle;
-    public GameObject Obstacle_1;
+    
     public Vector3 EveryPos;
     private Vector3 SceneRotation;
 
@@ -32,10 +31,7 @@ public class HallCam : MonoBehaviour {
     public float velocity;
     public float tempo;
 
-    // lanes to position objects randomly
-    public float leftLane = -2;
-    public float middleLane = 0;
-    public float rightLane = 2;
+
 
     // speed 
     [SerializeField]
@@ -47,8 +43,6 @@ public class HallCam : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-        Instantiate(Obstacle, new Vector3(-20f, .5f, 0), Obstacle.rotation);
 
         //set speed harcoded for debugging
         outputSpeed = 3;
@@ -66,20 +60,13 @@ public class HallCam : MonoBehaviour {
 	void FixedUpdate () {
 
 
-        // obstacles will have thier own script later
-        Obstacle_1 = GameObject.Find("obstacle 1(Clone)");
-      
-        //move obstacle 1
-        Obstacle_1.transform.Translate(-outputSpeed / 20, 0, 0);
-
        
         // Get & Set Planes Positions //
         pos_x1 = Tunnel1.transform.position.x;
         pos_x2 = Tunnel2.transform.position.x;
         pos_x3 = Tunnel3.transform.position.x;
 
-        // set position of obstacle
-        obs_posX = Obstacle_1.transform.position.x;
+      
         Everything.transform.position = EveryPos;
 
 
@@ -102,32 +89,7 @@ public class HallCam : MonoBehaviour {
         if (pos_x3 < -110)
         {
             Tunnel3.transform.position = new Vector3(pos_x2 + 99.8f, 0, 0);
-        }
-
-        // change obstacle location randomly between three lanes lefft middle and right after reset
-        if (obs_posX < -110)
-        {
-            //middle lane
-            randomPos = Random.value;
-            if (randomPos > .33f && randomPos < ( .66f)) {
-
-                Obstacle_1.transform.position = new Vector3(pos_x2 + 110f, .5f, middleLane);
-            } // end if
-
-           //right lane
-           if(randomPos > .66f)
-            {
-                Obstacle_1.transform.position = new Vector3(pos_x2 + 110f, .5f, rightLane);
-            } // end if
-
-           // left lane 
-           if(randomPos < .33f)
-            {
-
-                Obstacle_1.transform.position = new Vector3(pos_x2 + 110f, .5f, leftLane);
-            } // end if 
-
-        }// end if
+        } // end if
 
        
 

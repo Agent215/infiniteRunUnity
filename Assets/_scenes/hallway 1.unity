@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 369540787}
   - component: {fileID: 369540788}
   - component: {fileID: 369540789}
+  - component: {fileID: 369540790}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -426,17 +427,16 @@ MonoBehaviour:
   moveRight: 100
   speedUp: 119
   slowDown: 115
-  radiusModifier: 0
-  radius: 0
+  DistanceModifier: 0
   pet: {fileID: 0}
   mainCamera: {fileID: 0}
   gameControl: {fileID: 0}
+  petTransform: {fileID: 0}
   petCartesianTarget: {x: 0, y: 0, z: 0}
   petPos: {x: 0, y: 0, z: 0}
   playerPos: {x: 0, y: 0, z: 0}
   laneNumber: 2
   lerpTime: 2
-  lerpDistance: 2
 --- !u!114 &369540789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +460,25 @@ MonoBehaviour:
   camPos: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 0}
   controlLocked: 0
+--- !u!114 &369540790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369540785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d5715d9c1baa84ab7e8c4a8cf024de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacle: {fileID: 1410636264431612, guid: 05917675ca69d824db84a47e16d2dccd, type: 2}
+  spawnValues: {x: 20, y: 0.5, z: 4}
+  obstacleCount: 4
+  spawnWait: 2
+  startWait: 1
+  waveWait: 2
+  laneNumber: 0
+  randomPos: 0
 --- !u!4 &565145725 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4247906600506934, guid: b0e5aceeb51c3b14aa7746c26c16a118,

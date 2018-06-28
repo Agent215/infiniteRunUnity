@@ -72,6 +72,7 @@
     <Compile Include="Assets\scripts\CamMov.cs" />
     <Compile Include="Assets\scripts\GameControl.cs" />
     <Compile Include="Assets\scripts\HallCam.cs" />
+    <Compile Include="Assets\scripts\MoveObjects.cs" />
     <Compile Include="Assets\scripts\MovOrb.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\ColorBoxByPose.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\JointOrientation.cs" />
