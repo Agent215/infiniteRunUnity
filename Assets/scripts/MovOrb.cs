@@ -43,7 +43,7 @@ public class MovOrb : MonoBehaviour {
     public Vector3 petCartesianTarget;
     public Vector3 petPos;                   // Starting position of pet
     public Vector3 playerPos;               //player postition
-    readonly float GROUND_LEVEL= .5f;       // level the pet should be at to touch the ground.  this should not change.
+    readonly float FLIGHT_LEVEL= 2.0f;       // level the pet should be at to touch the ground.  this should not change.
     
     //track horizontal lane position of pet
     public int laneNumber = 2;            //   Left= 1 , Middle=2 , Right =3
@@ -115,7 +115,7 @@ public class MovOrb : MonoBehaviour {
 
 
         // set target
-        petCartesianTarget.Set(playerPos.x + DistanceModifier, GROUND_LEVEL, playerPos.z);
+        petCartesianTarget.Set(playerPos.x + DistanceModifier, FLIGHT_LEVEL, playerPos.z);
 
         //get distance between current position and target vector
         journeyLength = Vector3.Distance(petPos, petCartesianTarget);

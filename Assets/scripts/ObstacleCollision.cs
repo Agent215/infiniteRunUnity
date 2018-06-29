@@ -17,7 +17,7 @@ public class ObstacleCollision : MonoBehaviour {
     {
 
         // if obstacle hits pet, this will eventually never happen and only the player will be able to hit obstacles
-        if (other.gameObject.name == "Pet")
+        if (other.gameObject.name == "Hoverbike")
         {
             SceneManager.LoadScene("GameOver");
         }

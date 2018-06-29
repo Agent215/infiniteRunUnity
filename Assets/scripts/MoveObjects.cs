@@ -19,7 +19,7 @@ public class MoveObjects : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         
         // update speed
         speed = gameControl.GetComponent<HallCam>().outputSpeed;

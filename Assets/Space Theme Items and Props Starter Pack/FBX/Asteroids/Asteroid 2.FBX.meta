@@ -1,0 +1,502 @@
+fileFormatVersion: 2
+guid: 5d9b9975c3b3bd94f853ebd58a3c5c58
+timeCreated: 1497690229
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ' 1'
+    100004: 2
+    100006: Asteroid 1
+    100008: asteroid 1
+    100010: asteroid 1_Part_1
+    100012: asteroid 1_Part_10
+    100014: asteroid 1_Part_11
+    100016: asteroid 1_Part_12
+    100018: asteroid 1_Part_13
+    100020: asteroid 1_Part_14
+    100022: asteroid 1_Part_15
+    100024: asteroid 1_Part_16
+    100026: asteroid 1_Part_17
+    100028: asteroid 1_Part_18
+    100030: asteroid 1_Part_19
+    100032: asteroid 1_Part_2
+    100034: asteroid 1_Part_20
+    100036: asteroid 1_Part_3
+    100038: asteroid 1_Part_4
+    100040: asteroid 1_Part_5
+    100042: asteroid 1_Part_6
+    100044: asteroid 1_Part_7
+    100046: asteroid 1_Part_8
+    100048: asteroid 1_Part_9
+    100050: Asteroid 2
+    100052: Beacon 1
+    100054: Boost Glow
+    100056: Checkpoint COL
+    100058: Checkpoint Finish
+    100060: Coin 002
+    100062: Crate 1 Red
+    100064: Crate 2 Red
+    100066: Crate 3 Red
+    100068: Crystal 1 Orange
+    100070: Cylinder002
+    100072: Fuel 2 Red
+    100074: GeoSphere001
+    100076: GeoSphere002
+    100078: Mine 1
+    100080: Mine 2
+    100082: Mini Fractured Planet
+    100084: Mini Frozen Planet
+    100086: Mini Mineral Planet Ice
+    100088: MiniPlanet3
+    100090: Object001
+    100092: Rocket
+    100094: Satellite 1
+    100096: Ship 1 Blue
+    100098: Ship A 1 Blue
+    100100: Ship A 1 Green
+    100102: Ship A 1 Orange
+    100104: Ship A 1 Red
+    100106: Ship A 2 Blue
+    100108: Ship A 2 Green
+    100110: Ship A 2 Orange
+    100112: Ship A 2 Red
+    100114: Ship A 3 Green
+    100116: Ship A 3 Orange
+    100118: Ship A 3 Red
+    100120: Ship B 1 Blue
+    100122: Ship B 1 Green
+    100124: Ship B 1 Orange
+    100126: Ship B 1 Red
+    100128: Ship B 2 Blue
+    100130: Ship B 2 Green
+    100132: Ship B 2 Orange
+    100134: Ship B 2 Red
+    100136: Ship B 3 Blue
+    100138: Ship B 3 Green
+    100140: Ship B 3 Orange
+    100142: Ship B 3 Red
+    100144: Sign Arrows
+    100146: Sign Arrows 2
+    100148: Sign Go!
+    100150: Sign X
+    100152: Spaceman
+    100154: Sphere002
+    100156: Star
+    100158: Turret 1 Base
+    100160: Turret 1 Head
+    100162: Turret 2 Base001
+    100164: Turret 2 Head001
+    100166: Turret 3 Base
+    100168: Turret 3 Head
+    100170: UFO 1
+    100172: UFO 2
+    400000: //RootNode
+    400002: ' 1'
+    400004: 2
+    400006: Asteroid 1
+    400008: asteroid 1
+    400010: asteroid 1_Part_1
+    400012: asteroid 1_Part_10
+    400014: asteroid 1_Part_11
+    400016: asteroid 1_Part_12
+    400018: asteroid 1_Part_13
+    400020: asteroid 1_Part_14
+    400022: asteroid 1_Part_15
+    400024: asteroid 1_Part_16
+    400026: asteroid 1_Part_17
+    400028: asteroid 1_Part_18
+    400030: asteroid 1_Part_19
+    400032: asteroid 1_Part_2
+    400034: asteroid 1_Part_20
+    400036: asteroid 1_Part_3
+    400038: asteroid 1_Part_4
+    400040: asteroid 1_Part_5
+    400042: asteroid 1_Part_6
+    400044: asteroid 1_Part_7
+    400046: asteroid 1_Part_8
+    400048: asteroid 1_Part_9
+    400050: Asteroid 2
+    400052: Beacon 1
+    400054: Boost Glow
+    400056: Checkpoint COL
+    400058: Checkpoint Finish
+    400060: Coin 002
+    400062: Crate 1 Red
+    400064: Crate 2 Red
+    400066: Crate 3 Red
+    400068: Crystal 1 Orange
+    400070: Cylinder002
+    400072: Fuel 2 Red
+    400074: GeoSphere001
+    400076: GeoSphere002
+    400078: Mine 1
+    400080: Mine 2
+    400082: Mini Fractured Planet
+    400084: Mini Frozen Planet
+    400086: Mini Mineral Planet Ice
+    400088: MiniPlanet3
+    400090: Object001
+    400092: Rocket
+    400094: Satellite 1
+    400096: Ship 1 Blue
+    400098: Ship A 1 Blue
+    400100: Ship A 1 Green
+    400102: Ship A 1 Orange
+    400104: Ship A 1 Red
+    400106: Ship A 2 Blue
+    400108: Ship A 2 Green
+    400110: Ship A 2 Orange
+    400112: Ship A 2 Red
+    400114: Ship A 3 Green
+    400116: Ship A 3 Orange
+    400118: Ship A 3 Red
+    400120: Ship B 1 Blue
+    400122: Ship B 1 Green
+    400124: Ship B 1 Orange
+    400126: Ship B 1 Red
+    400128: Ship B 2 Blue
+    400130: Ship B 2 Green
+    400132: Ship B 2 Orange
+    400134: Ship B 2 Red
+    400136: Ship B 3 Blue
+    400138: Ship B 3 Green
+    400140: Ship B 3 Orange
+    400142: Ship B 3 Red
+    400144: Sign Arrows
+    400146: Sign Arrows 2
+    400148: Sign Go!
+    400150: Sign X
+    400152: Spaceman
+    400154: Sphere002
+    400156: Star
+    400158: Turret 1 Base
+    400160: Turret 1 Head
+    400162: Turret 2 Base001
+    400164: Turret 2 Head001
+    400166: Turret 3 Base
+    400168: Turret 3 Head
+    400170: UFO 1
+    400172: UFO 2
+    2300000: //RootNode
+    2300002: ' 1'
+    2300004: Asteroid 1
+    2300006: asteroid 1
+    2300008: asteroid 1_Part_1
+    2300010: asteroid 1_Part_10
+    2300012: asteroid 1_Part_11
+    2300014: asteroid 1_Part_12
+    2300016: asteroid 1_Part_13
+    2300018: asteroid 1_Part_14
+    2300020: asteroid 1_Part_15
+    2300022: asteroid 1_Part_16
+    2300024: asteroid 1_Part_17
+    2300026: asteroid 1_Part_18
+    2300028: asteroid 1_Part_19
+    2300030: asteroid 1_Part_2
+    2300032: asteroid 1_Part_20
+    2300034: asteroid 1_Part_3
+    2300036: asteroid 1_Part_4
+    2300038: asteroid 1_Part_5
+    2300040: asteroid 1_Part_6
+    2300042: asteroid 1_Part_7
+    2300044: asteroid 1_Part_8
+    2300046: asteroid 1_Part_9
+    2300048: Asteroid 2
+    2300050: Beacon 1
+    2300052: Boost Glow
+    2300054: Checkpoint COL
+    2300056: Checkpoint Finish
+    2300058: Coin 002
+    2300060: Crate 1 Red
+    2300062: Crate 2 Red
+    2300064: Crate 3 Red
+    2300066: Cylinder002
+    2300068: Fuel 2 Red
+    2300070: GeoSphere001
+    2300072: GeoSphere002
+    2300074: Mine 1
+    2300076: Mine 2
+    2300078: Mini Fractured Planet
+    2300080: Mini Frozen Planet
+    2300082: Mini Mineral Planet Ice
+    2300084: MiniPlanet3
+    2300086: Object001
+    2300088: Rocket
+    2300090: Satellite 1
+    2300092: Ship 1 Blue
+    2300094: Ship A 1 Blue
+    2300096: Ship A 1 Green
+    2300098: Ship A 1 Orange
+    2300100: Ship A 1 Red
+    2300102: Ship A 2 Blue
+    2300104: Ship A 2 Green
+    2300106: Ship A 2 Orange
+    2300108: Ship A 2 Red
+    2300110: Ship A 3 Green
+    2300112: Ship A 3 Orange
+    2300114: Ship A 3 Red
+    2300116: Ship B 1 Blue
+    2300118: Ship B 1 Green
+    2300120: Ship B 1 Orange
+    2300122: Ship B 1 Red
+    2300124: Ship B 2 Blue
+    2300126: Ship B 2 Green
+    2300128: Ship B 2 Orange
+    2300130: Ship B 2 Red
+    2300132: Ship B 3 Blue
+    2300134: Ship B 3 Green
+    2300136: Ship B 3 Orange
+    2300138: Ship B 3 Red
+    2300140: Sign Arrows
+    2300142: Sign Arrows 2
+    2300144: Sign Go!
+    2300146: Sign X
+    2300148: Spaceman
+    2300150: Sphere002
+    2300152: Star
+    2300154: Turret 1 Base
+    2300156: Turret 1 Head
+    2300158: Turret 2 Base001
+    2300160: Turret 2 Head001
+    2300162: Turret 3 Base
+    2300164: Turret 3 Head
+    2300166: UFO 1
+    2300168: UFO 2
+    3300000: //RootNode
+    3300002: ' 1'
+    3300004: Asteroid 1
+    3300006: asteroid 1
+    3300008: asteroid 1_Part_1
+    3300010: asteroid 1_Part_10
+    3300012: asteroid 1_Part_11
+    3300014: asteroid 1_Part_12
+    3300016: asteroid 1_Part_13
+    3300018: asteroid 1_Part_14
+    3300020: asteroid 1_Part_15
+    3300022: asteroid 1_Part_16
+    3300024: asteroid 1_Part_17
+    3300026: asteroid 1_Part_18
+    3300028: asteroid 1_Part_19
+    3300030: asteroid 1_Part_2
+    3300032: asteroid 1_Part_20
+    3300034: asteroid 1_Part_3
+    3300036: asteroid 1_Part_4
+    3300038: asteroid 1_Part_5
+    3300040: asteroid 1_Part_6
+    3300042: asteroid 1_Part_7
+    3300044: asteroid 1_Part_8
+    3300046: asteroid 1_Part_9
+    3300048: Asteroid 2
+    3300050: Beacon 1
+    3300052: Boost Glow
+    3300054: Checkpoint COL
+    3300056: Checkpoint Finish
+    3300058: Coin 002
+    3300060: Crate 1 Red
+    3300062: Crate 2 Red
+    3300064: Crate 3 Red
+    3300066: Cylinder002
+    3300068: Fuel 2 Red
+    3300070: GeoSphere001
+    3300072: GeoSphere002
+    3300074: Mine 1
+    3300076: Mine 2
+    3300078: Mini Fractured Planet
+    3300080: Mini Frozen Planet
+    3300082: Mini Mineral Planet Ice
+    3300084: MiniPlanet3
+    3300086: Object001
+    3300088: Rocket
+    3300090: Satellite 1
+    3300092: Ship 1 Blue
+    3300094: Ship A 1 Blue
+    3300096: Ship A 1 Green
+    3300098: Ship A 1 Orange
+    3300100: Ship A 1 Red
+    3300102: Ship A 2 Blue
+    3300104: Ship A 2 Green
+    3300106: Ship A 2 Orange
+    3300108: Ship A 2 Red
+    3300110: Ship A 3 Green
+    3300112: Ship A 3 Orange
+    3300114: Ship A 3 Red
+    3300116: Ship B 1 Blue
+    3300118: Ship B 1 Green
+    3300120: Ship B 1 Orange
+    3300122: Ship B 1 Red
+    3300124: Ship B 2 Blue
+    3300126: Ship B 2 Green
+    3300128: Ship B 2 Orange
+    3300130: Ship B 2 Red
+    3300132: Ship B 3 Blue
+    3300134: Ship B 3 Green
+    3300136: Ship B 3 Orange
+    3300138: Ship B 3 Red
+    3300140: Sign Arrows
+    3300142: Sign Arrows 2
+    3300144: Sign Go!
+    3300146: Sign X
+    3300148: Spaceman
+    3300150: Sphere002
+    3300152: Star
+    3300154: Turret 1 Base
+    3300156: Turret 1 Head
+    3300158: Turret 2 Base001
+    3300160: Turret 2 Head001
+    3300162: Turret 3 Base
+    3300164: Turret 3 Head
+    3300166: UFO 1
+    3300168: UFO 2
+    4300000: Asteroid 2
+    4300002: Crate 3 Red
+    4300004: Crate 1 Red
+    4300006: Crate 2 Red
+    4300008: Cylinder002
+    4300010: Mine 2
+    4300012: GeoSphere001
+    4300014: Sphere002
+    4300016: Rocket
+    4300018: Boost Glow
+    4300020: Ship A 3 Orange
+    4300022: Spaceman
+    4300024: Object001
+    4300026: Star
+    4300028: Turret 1 Base
+    4300030: Turret 1 Head
+    4300032: Mine 1
+    4300034: Fuel 2 Red
+    4300036: Checkpoint Finish
+    4300038: Checkpoint COL
+    4300040: Turret 3 Base
+    4300042: Turret 3 Head
+    4300044: Turret 2 Base001
+    4300046: Turret 2 Head001
+    4300048: Ship A 2 Red
+    4300050: Ship A 1 Green
+    4300052: Ship A 2 Green
+    4300054: Ship A 3 Green
+    4300056: Ship A 1 Red
+    4300058: Ship A 3 Red
+    4300060: Ship A 1 Blue
+    4300062: Ship A 2 Blue
+    4300064: Ship A 1 Orange
+    4300066: Ship A 2 Orange
+    4300068: Ship B 3 Orange
+    4300070: Ship B 2 Orange
+    4300072: Ship B 1 Orange
+    4300074: Ship B 1 Green
+    4300076: Ship B 2 Green
+    4300078: Ship B 3 Green
+    4300080: Ship B 1 Blue
+    4300082: Ship B 2 Blue
+    4300084: Ship B 3 Blue
+    4300086: Ship B 1 Red
+    4300088: Ship B 2 Red
+    4300090: Ship B 3 Red
+    4300092: Sign X
+    4300094: Sign Go!
+    4300096: Sign Arrows
+    4300098: Sign Arrows 2
+    4300100: UFO 1
+    4300102: UFO 2
+    4300104: Coin 002
+    4300106: Ship 1 Blue
+    4300108: MiniPlanet3
+    4300110: Beacon 1
+    4300114: Satellite 1
+    4300116: Mini Mineral Planet Ice
+    4300118: GeoSphere002
+    4300120: Mini Fractured Planet
+    4300122: Mini Frozen Planet
+    4300124: asteroid 1
+    4300126: Asteroid 1
+    4300128: asteroid 1_Part_1
+    4300130: asteroid 1_Part_2
+    4300132: asteroid 1_Part_3
+    4300134: asteroid 1_Part_4
+    4300136: asteroid 1_Part_5
+    4300138: asteroid 1_Part_6
+    4300140: asteroid 1_Part_7
+    4300142: asteroid 1_Part_8
+    4300144: asteroid 1_Part_9
+    4300146: asteroid 1_Part_10
+    4300148: asteroid 1_Part_11
+    4300150: asteroid 1_Part_12
+    4300152: asteroid 1_Part_13
+    4300154: asteroid 1_Part_14
+    4300156: asteroid 1_Part_15
+    4300158: asteroid 1_Part_16
+    4300160: asteroid 1_Part_17
+    4300162: asteroid 1_Part_18
+    4300164: asteroid 1_Part_19
+    4300166: asteroid 1_Part_20
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2 @@
+In the pack you can find character prefabs for each color scheme that includes meshes of two levels of detail, material for the LODs and an fly loop animation.
+You’ll have to add needed animations, to create and to set transitions between them yourself.

@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 2e3e6085b809d83438b72170897b3c4d
+timeCreated: 1497690114
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: asteroid 1_Part_1
+    100002: asteroid 1_Part_10
+    100004: asteroid 1_Part_11
+    100006: asteroid 1_Part_12
+    100008: asteroid 1_Part_13
+    100010: asteroid 1_Part_14
+    100012: asteroid 1_Part_15
+    100014: asteroid 1_Part_16
+    100016: asteroid 1_Part_17
+    100018: asteroid 1_Part_18
+    100020: asteroid 1_Part_19
+    100022: asteroid 1_Part_2
+    100024: asteroid 1_Part_20
+    100026: asteroid 1_Part_3
+    100028: asteroid 1_Part_4
+    100030: asteroid 1_Part_5
+    100032: asteroid 1_Part_6
+    100034: asteroid 1_Part_7
+    100036: asteroid 1_Part_8
+    100038: asteroid 1_Part_9
+    100040: //RootNode
+    400000: asteroid 1_Part_1
+    400002: asteroid 1_Part_10
+    400004: asteroid 1_Part_11
+    400006: asteroid 1_Part_12
+    400008: asteroid 1_Part_13
+    400010: asteroid 1_Part_14
+    400012: asteroid 1_Part_15
+    400014: asteroid 1_Part_16
+    400016: asteroid 1_Part_17
+    400018: asteroid 1_Part_18
+    400020: asteroid 1_Part_19
+    400022: asteroid 1_Part_2
+    400024: asteroid 1_Part_20
+    400026: asteroid 1_Part_3
+    400028: asteroid 1_Part_4
+    400030: asteroid 1_Part_5
+    400032: asteroid 1_Part_6
+    400034: asteroid 1_Part_7
+    400036: asteroid 1_Part_8
+    400038: asteroid 1_Part_9
+    400040: //RootNode
+    2300000: asteroid 1_Part_1
+    2300002: asteroid 1_Part_10
+    2300004: asteroid 1_Part_11
+    2300006: asteroid 1_Part_12
+    2300008: asteroid 1_Part_13
+    2300010: asteroid 1_Part_14
+    2300012: asteroid 1_Part_15
+    2300014: asteroid 1_Part_16
+    2300016: asteroid 1_Part_17
+    2300018: asteroid 1_Part_18
+    2300020: asteroid 1_Part_19
+    2300022: asteroid 1_Part_2
+    2300024: asteroid 1_Part_20
+    2300026: asteroid 1_Part_3
+    2300028: asteroid 1_Part_4
+    2300030: asteroid 1_Part_5
+    2300032: asteroid 1_Part_6
+    2300034: asteroid 1_Part_7
+    2300036: asteroid 1_Part_8
+    2300038: asteroid 1_Part_9
+    3300000: asteroid 1_Part_1
+    3300002: asteroid 1_Part_10
+    3300004: asteroid 1_Part_11
+    3300006: asteroid 1_Part_12
+    3300008: asteroid 1_Part_13
+    3300010: asteroid 1_Part_14
+    3300012: asteroid 1_Part_15
+    3300014: asteroid 1_Part_16
+    3300016: asteroid 1_Part_17
+    3300018: asteroid 1_Part_18
+    3300020: asteroid 1_Part_19
+    3300022: asteroid 1_Part_2
+    3300024: asteroid 1_Part_20
+    3300026: asteroid 1_Part_3
+    3300028: asteroid 1_Part_4
+    3300030: asteroid 1_Part_5
+    3300032: asteroid 1_Part_6
+    3300034: asteroid 1_Part_7
+    3300036: asteroid 1_Part_8
+    3300038: asteroid 1_Part_9
+    4300000: asteroid 1_Part_1
+    4300002: asteroid 1_Part_2
+    4300004: asteroid 1_Part_3
+    4300006: asteroid 1_Part_4
+    4300008: asteroid 1_Part_5
+    4300010: asteroid 1_Part_6
+    4300012: asteroid 1_Part_7
+    4300014: asteroid 1_Part_8
+    4300016: asteroid 1_Part_9
+    4300018: asteroid 1_Part_10
+    4300020: asteroid 1_Part_11
+    4300022: asteroid 1_Part_12
+    4300024: asteroid 1_Part_13
+    4300026: asteroid 1_Part_14
+    4300028: asteroid 1_Part_15
+    4300030: asteroid 1_Part_16
+    4300032: asteroid 1_Part_17
+    4300034: asteroid 1_Part_18
+    4300036: asteroid 1_Part_19
+    4300038: asteroid 1_Part_20
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

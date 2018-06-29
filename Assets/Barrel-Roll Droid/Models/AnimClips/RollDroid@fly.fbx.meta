@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: f906c4092fa2b3b48880acb6ca0045eb
+timeCreated: 1508625130
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: be_eye01
+    100002: be_l_claw01
+    100004: be_l_claw02
+    100006: be_l_wing01
+    100008: be_r_claw01
+    100010: be_r_claw02
+    100012: be_r_wing01
+    100014: bind_blade01
+    100016: bind_blade02
+    100018: bind_blade03
+    100020: bind_blade04
+    100022: bind_eye01
+    100024: bind_l_claw01
+    100026: bind_l_claw02
+    100028: bind_l_leg01
+    100030: bind_l_leg02
+    100032: bind_l_wing01
+    100034: bind_propeller01
+    100036: bind_r_claw01
+    100038: bind_r_claw02
+    100040: bind_r_leg01
+    100042: bind_r_leg02
+    100044: bind_r_wing01
+    100046: bind_root01
+    100048: LOD_Group_1
+    100050: //RootNode
+    100052: RollDroid_LOD0
+    100054: RollDroid_LOD1
+    400000: be_eye01
+    400002: be_l_claw01
+    400004: be_l_claw02
+    400006: be_l_wing01
+    400008: be_r_claw01
+    400010: be_r_claw02
+    400012: be_r_wing01
+    400014: bind_blade01
+    400016: bind_blade02
+    400018: bind_blade03
+    400020: bind_blade04
+    400022: bind_eye01
+    400024: bind_l_claw01
+    400026: bind_l_claw02
+    400028: bind_l_leg01
+    400030: bind_l_leg02
+    400032: bind_l_wing01
+    400034: bind_propeller01
+    400036: bind_r_claw01
+    400038: bind_r_claw02
+    400040: bind_r_leg01
+    400042: bind_r_leg02
+    400044: bind_r_wing01
+    400046: bind_root01
+    400048: LOD_Group_1
+    400050: //RootNode
+    400052: RollDroid_LOD0
+    400054: RollDroid_LOD1
+    4300000: RollDroid_LOD0
+    4300002: RollDroid_LOD1
+    7400000: fly
+    9500000: //RootNode
+    13700000: RollDroid_LOD0
+    13700002: RollDroid_LOD1
+    20500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: fly
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bind_root01
+        weight: 1
+      - path: bind_root01/bind_eye01
+        weight: 1
+      - path: bind_root01/bind_eye01/be_eye01
+        weight: 1
+      - path: bind_root01/bind_l_leg01
+        weight: 1
+      - path: bind_root01/bind_l_leg01/bind_l_claw01
+        weight: 1
+      - path: bind_root01/bind_l_leg01/bind_l_claw01/be_l_claw01
+        weight: 1
+      - path: bind_root01/bind_l_leg02
+        weight: 1
+      - path: bind_root01/bind_l_leg02/bind_l_claw02
+        weight: 1
+      - path: bind_root01/bind_l_leg02/bind_l_claw02/be_l_claw02
+        weight: 1
+      - path: bind_root01/bind_l_wing01
+        weight: 1
+      - path: bind_root01/bind_l_wing01/be_l_wing01
+        weight: 1
+      - path: bind_root01/bind_propeller01
+        weight: 1
+      - path: bind_root01/bind_propeller01/bind_blade01
+        weight: 1
+      - path: bind_root01/bind_propeller01/bind_blade02
+        weight: 1
+      - path: bind_root01/bind_propeller01/bind_blade03
+        weight: 1
+      - path: bind_root01/bind_propeller01/bind_blade04
+        weight: 1
+      - path: bind_root01/bind_r_leg01
+        weight: 1
+      - path: bind_root01/bind_r_leg01/bind_r_claw01
+        weight: 1
+      - path: bind_root01/bind_r_leg01/bind_r_claw01/be_r_claw01
+        weight: 1
+      - path: bind_root01/bind_r_leg02
+        weight: 1
+      - path: bind_root01/bind_r_leg02/bind_r_claw02
+        weight: 1
+      - path: bind_root01/bind_r_leg02/bind_r_claw02/be_r_claw02
+        weight: 1
+      - path: bind_root01/bind_r_wing01
+        weight: 1
+      - path: bind_root01/bind_r_wing01/be_r_wing01
+        weight: 1
+      - path: LOD_Group_1
+        weight: 1
+      - path: LOD_Group_1/RollDroid_LOD0
+        weight: 1
+      - path: LOD_Group_1/RollDroid_LOD1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b63efa86ff39a4a46bf771b38fdc9c26,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

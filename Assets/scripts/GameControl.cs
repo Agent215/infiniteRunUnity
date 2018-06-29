@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour {
 
+    public GameObject building;
+    public GameObject coin;
     public GameObject obstacle;
     public Vector3 spawnValues;
+    public int coinCount;
     public int obstacleCount;
     public float spawnWait;
     public float startWait;
     public float waveWait;
-    public float laneNumber;
+    public float ObstacleLaneNumber;
+    public float BuildingLaneNumber;
+    public float CoinLaneNumber;
+
+    public int score;
 
     // random number for positioning objects
     public float randomPos;
+    public float randomSeed;
 
 
 
     // Use this for initialization
     void Start () {
-
+        score = 0;
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
 
@@ -32,32 +40,59 @@ public class GameControl : MonoBehaviour {
 
         //random seed number for object placement 
         randomPos = Random.value;
+        randomSeed = Random.value;
 
-
-        // change obstacle location randomly between three lanes left middle and right 
+        // change obstacle and coins change location randomly between three lanes left middle and right 
         
         //middle lane
             if (randomPos > .33f && randomPos < (.66f))
             {
-        
-            laneNumber = 0.0f;
-            
-            } // end if
+
+            BuildingLaneNumber = -15.0f;
+            ObstacleLaneNumber = 0.0f;
+
+            if (randomSeed <= .2f)
+                CoinLaneNumber = -2.0f;
+
+            if (randomSeed >= .8f)
+                CoinLaneNumber = 2.0f;
+
+
+        } // end if
 
         //right lane
             if (randomPos > .66f)
             {
-            laneNumber = -2.0f;
-            } // end if
+
+            BuildingLaneNumber = 15.0f;
+            ObstacleLaneNumber = -2.0f;
+
+
+
+            if (randomSeed <= .2f)
+                CoinLaneNumber = 0.0f;
+
+            if (randomSeed >= .8f)
+                CoinLaneNumber = 2.0f;
+
+        } // end if
 
        // left lane 
             if (randomPos < .33f)
             {
+
+            ObstacleLaneNumber = 2.0f;
+
+
+            if (randomSeed <= .2f)
+                CoinLaneNumber = 0.0f;
+
+            if (randomSeed >= .8f)
+                CoinLaneNumber = -2.0f;
+
+        } // end if 
+
         
-            laneNumber = 2.0f;
-            } // end if 
-
-
     } // end update
 
    //******************************************************************************************************************************
@@ -65,18 +100,46 @@ public class GameControl : MonoBehaviour {
     IEnumerator SpawnObjects()
     {
         yield return new WaitForSeconds(startWait);
+
         while (true)
         {
             for (int i = 0; i < obstacleCount; i++)
+
             {
-                Vector3 spawnPosition = new Vector3(spawnValues.x, spawnValues.y, laneNumber);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(obstacle, spawnPosition, spawnRotation);
+                //spawn obstacles
+                Vector3 ObstaclePosition = new Vector3(spawnValues.x, spawnValues.y, ObstacleLaneNumber);
+                Quaternion ObstacleRotation = Quaternion.identity;
+                Instantiate(obstacle, ObstaclePosition, ObstacleRotation);
+
+
+                // spawn coins
+                Vector3 CoinPosition = new Vector3(spawnValues.x, spawnValues.y, CoinLaneNumber);
+                Quaternion CoinRotation = Quaternion.identity;
+                Instantiate(coin, CoinPosition, CoinRotation);
+
+                Vector3 BuildingPosition = new Vector3(40.0f, 0, BuildingLaneNumber);
+                Quaternion buildingRotation = Quaternion.identity;
+                Instantiate(building, BuildingPosition, buildingRotation);
+
+                
+
+
                 yield return new WaitForSeconds(spawnWait);
             }
+
+
+            
+
             yield return new WaitForSeconds(waveWait);
+
         } // end while
+
     } // end SpawnObjects
 
- //******************************************************************************************************************************
+    //******************************************************************************************************************************
+
+    public void AddScore() {
+        score += 1;
+
+    }
 } // end GameControl

@@ -70,6 +70,9 @@
     <Compile Include="Assets\Myo\Scripts\ThalmicHub.cs" />
     <Compile Include="Assets\Myo\Scripts\ThalmicMyo.cs" />
     <Compile Include="Assets\scripts\CamMov.cs" />
+    <Compile Include="Assets\scripts\Coin.cs" />
+    <Compile Include="Assets\scripts\DestroyByBoundary.cs" />
+    <Compile Include="Assets\scripts\DisplayScore.cs" />
     <Compile Include="Assets\scripts\GameControl.cs" />
     <Compile Include="Assets\scripts\HallCam.cs" />
     <Compile Include="Assets\scripts\MoveObjects.cs" />
@@ -77,8 +80,11 @@
     <Compile Include="Assets\scripts\Myo Samples\Scripts\ColorBoxByPose.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\JointOrientation.cs" />
     <Compile Include="Assets\scripts\Myo Samples\Scripts\SampleSceneGUI.cs" />
+    <Compile Include="Assets\scripts\ObstacleCollision.cs" />
     <Compile Include="Assets\scripts\sceneMan.cs" />
     <Compile Include="Assets\scripts\Utils\ShpericalCoordinates.cs" />
+    <None Include="Assets\Barrel-Roll Droid\manual.txt" />
+    <None Include="Assets\Space Theme Items and Props Starter Pack\--ReadMe--.txt" />
     <None Include="Assets\Myo\README-MyoUnity.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Inflection Point/Desktop/infiniteRun/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
