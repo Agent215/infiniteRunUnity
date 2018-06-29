@@ -105,11 +105,11 @@ public class MovOrb : MonoBehaviour {
         //debugging
         Debug.Log(petPos.x + "this is the pets location in x axis");
 
-        //if we are speeding up move pet closer to player. but stop at player
+        //if we are speeding up move pet closer to player. but stop at player, harcoded for debugging
         if ((Input.GetKey(speedUp)) && (DistanceModifier > 4.5))
             DistanceModifier -= .030f;
 
-        //if we are slowing down move pet farther away but stop after distacne is to far
+        //if we are slowing down move pet farther away but stop after distacne is to far ,harcoded for debugging
         if ((Input.GetKey(slowDown))&& (DistanceModifier < 30))
             DistanceModifier += .030f;
 

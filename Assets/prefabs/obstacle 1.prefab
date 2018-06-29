@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 65395265287999482}
   - component: {fileID: 54420691005169532}
   - component: {fileID: 114121780324287536}
+  - component: {fileID: 114815199373294440}
   m_Layer: 0
   m_Name: obstacle 1
   m_TagString: obstacle
@@ -87,7 +88,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 327189f2ad32a48539551572046b5f84, type: 2}
   m_StaticBatchInfo:
@@ -168,3 +168,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rb: {fileID: 0}
+--- !u!114 &114815199373294440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410636264431612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d04c09e8764c24b98925b35422cfb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

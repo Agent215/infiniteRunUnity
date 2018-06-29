@@ -19,17 +19,22 @@ public class GameControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
+
     } // end start
-	
-	// Update is called once per frame
-	void Update () {
-        //random seed for object placement 
+
+    //******************************************************************************************************************************
+
+      // Update is called once per frame
+    void Update () {
+
+        //random seed number for object placement 
         randomPos = Random.value;
 
 
-        // change obstacle location randomly between three lanes lefft middle and right 
+        // change obstacle location randomly between three lanes left middle and right 
         
         //middle lane
             if (randomPos > .33f && randomPos < (.66f))
@@ -39,13 +44,13 @@ public class GameControl : MonoBehaviour {
             
             } // end if
 
-            //right lane
+        //right lane
             if (randomPos > .66f)
             {
             laneNumber = -2.0f;
             } // end if
 
-            // left lane 
+       // left lane 
             if (randomPos < .33f)
             {
         
@@ -55,7 +60,7 @@ public class GameControl : MonoBehaviour {
 
     } // end update
 
-
+   //******************************************************************************************************************************
 
     IEnumerator SpawnObjects()
     {
@@ -72,4 +77,6 @@ public class GameControl : MonoBehaviour {
             yield return new WaitForSeconds(waveWait);
         } // end while
     } // end SpawnObjects
+
+ //******************************************************************************************************************************
 } // end GameControl
