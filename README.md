@@ -13,7 +13,7 @@ Game includes :
 -As the player slows down the pet should appear farther away and as the player speeds up the pet should appear closer.
 -The amount of obstacles should also be pseudo random and be determined by a variety of inputs.
 -Obstacles should move at the same speed the hallway tunnel moves 
-- Obstacles should range in size and position pseudo randomly, according to a yet to be determined function.
+-Obstacles should range in size and position pseudo randomly, according to a yet to be determined function.
 
 
 
