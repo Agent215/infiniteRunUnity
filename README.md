@@ -36,4 +36,4 @@ The camera is the first person view of the player the ball prefab represents a p
 The game supports keyboard input for movement using the WASD keys. In future versions other means of input will be used that are suitable to virtual reality.<br/><br/>
 
 The application infinteRunUnity has a build folder with an executable file that will run on Windows.
-download whole build folder then unzip and run .exe file.<br/><br/>
+download whole build folder then unzip and run .exe file title WindowsBuild.<br/><br/>
