@@ -16,6 +16,7 @@ public class GameControl : MonoBehaviour {
     public float ObstacleLaneNumber;
     public float BuildingLaneNumber;
     public float CoinLaneNumber;
+    public float yRotation;
 
     public int score;
 
@@ -30,6 +31,7 @@ public class GameControl : MonoBehaviour {
         score = 0;
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
+        yRotation = 0.0F;
 
     } // end start
 
@@ -42,13 +44,15 @@ public class GameControl : MonoBehaviour {
         randomPos = Random.value;
         randomSeed = Random.value;
 
+       
+
         // change obstacle and coins change location randomly between three lanes left middle and right 
         
         //middle lane
             if (randomPos > .33f && randomPos < (.66f))
             {
 
-            BuildingLaneNumber = -15.0f;
+            BuildingLaneNumber = -11.0f;
             ObstacleLaneNumber = 0.0f;
 
             if (randomSeed <= .2f)
@@ -64,7 +68,7 @@ public class GameControl : MonoBehaviour {
             if (randomPos > .66f)
             {
 
-            BuildingLaneNumber = 15.0f;
+            BuildingLaneNumber = 11.0f;
             ObstacleLaneNumber = -2.0f;
 
 
@@ -117,12 +121,14 @@ public class GameControl : MonoBehaviour {
                 Quaternion CoinRotation = Quaternion.identity;
                 Instantiate(coin, CoinPosition, CoinRotation);
 
+               
                 Vector3 BuildingPosition = new Vector3(40.0f, 0, BuildingLaneNumber);
                 Quaternion buildingRotation = Quaternion.identity;
+                buildingRotation.eulerAngles = new Vector3(0, yRotation, 0);
                 Instantiate(building, BuildingPosition, buildingRotation);
+           
 
-                
-
+               
 
                 yield return new WaitForSeconds(spawnWait);
             }

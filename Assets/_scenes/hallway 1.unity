@@ -200,8 +200,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94053966, y: 2.9103994, z: 1.4763646}
-  m_Center: {x: 0.0012601912, y: -0.09167433, z: 0.9544523}
+  m_Size: {x: 0.6049724, y: 2.9103994, z: 1.4763646}
+  m_Center: {x: 0.038531564, y: -0.09167431, z: 0.9544523}
 --- !u!4 &324589813 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4247906600506934, guid: b0e5aceeb51c3b14aa7746c26c16a118,
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d5715d9c1baa84ab7e8c4a8cf024de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1857812869738254, guid: e1e7465596bc61342bbbf8c4eeb45bb5, type: 2}
+  building: {fileID: 1509628356849042, guid: 4c6de172471b47443b260383e7db2158, type: 2}
   coin: {fileID: 1798333007713622, guid: 3160bea4396a014469539619bdb08652, type: 2}
   obstacle: {fileID: 1427410673105288, guid: e378cdf431887d6428dfdac9d4476455, type: 2}
   spawnValues: {x: 20, y: 0.5, z: 4}
@@ -400,6 +400,7 @@ MonoBehaviour:
   ObstacleLaneNumber: 0
   BuildingLaneNumber: 0
   CoinLaneNumber: 0
+  yRotation: 90
   score: 0
   randomPos: 0
   randomSeed: 0
