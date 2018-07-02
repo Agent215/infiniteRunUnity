@@ -121,7 +121,7 @@ public class GameControl : MonoBehaviour {
                 Quaternion CoinRotation = Quaternion.identity;
                 Instantiate(coin, CoinPosition, CoinRotation);
 
-               
+               //spawn buildings
                 Vector3 BuildingPosition = new Vector3(40.0f, 0, BuildingLaneNumber);
                 Quaternion buildingRotation = Quaternion.identity;
                 buildingRotation.eulerAngles = new Vector3(0, yRotation, 0);
@@ -141,6 +141,14 @@ public class GameControl : MonoBehaviour {
         } // end while
 
     } // end SpawnObjects
+
+    //method to spawn various buildings pseudo randomly
+    //method should spawn buildings in forgreound, midground, and background ranges
+    //IEnumerator SpawnBuildings() {
+
+    //   return;
+    //        } // end SpawnBuildings 
+
 
     //******************************************************************************************************************************
 
