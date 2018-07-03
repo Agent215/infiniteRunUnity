@@ -20,6 +20,7 @@ public class ObstacleCollision : MonoBehaviour {
         if (other.gameObject.name == "Hoverbike")
         {
             SceneManager.LoadScene("GameOver");
+            Cursor.lockState = CursorLockMode.None;
         }
         
     }
