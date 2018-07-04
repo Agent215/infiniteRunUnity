@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*MovPlayer.cs -Abraham Schultz-July2018
+ * 
+ *Scipt to move the player rig  , should move the same as camera.
+ * 
+ * 
+ * */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -100,4 +107,4 @@ public class MovPlayer : MonoBehaviour {
 
     }  // end Move Smoothley
 
-}
+}// end MovPlayer

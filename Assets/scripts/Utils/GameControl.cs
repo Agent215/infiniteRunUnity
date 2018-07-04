@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*GameControl.cs - Abraham Schultz- july 2018
+ * 
+ * A class to control the spawning of objects in the central game scene.
+ *  
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,6 +44,7 @@ public class GameControl : MonoBehaviour {
 
     //******************************************************************************************************************************
 
+  
       // Update is called once per frame
     void Update () {
 
@@ -142,18 +150,50 @@ public class GameControl : MonoBehaviour {
 
     } // end SpawnObjects
 
-    //method to spawn various buildings pseudo randomly
-    //method should spawn buildings in forgreound, midground, and background ranges
-    //IEnumerator SpawnBuildings() {
+    /*
+    
+   method to spawn various buildings pseudo randomly
+   method should spawn buildings in forgreound, midground, and background ranges
+   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the building
 
-    //   return;
-    //        } // end SpawnBuildings 
+   IEnumerator SpawnBuildings (Quaternion rotation, int laneId,GameObject Building) {
 
+        //algorithim to spawn a specific pattern
+           return;
+                                                                                      } // end SpawnBuildings 
+
+
+
+
+   method to spawn various obstacles pseudo randomly
+   method should spawn obstacles one of three possible lanes middle, left or right
+   method should pawn obstacles in one of three possible height lanes low medium high
+   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the obstacles
+
+         IEnumerator SpawnObstacles (Quaternion rotation, int laneId, int heightLane ,GameObject obstacle) {
+         //algorithim to spawn a specific pattern
+           return;
+                                                                                      } // end SpawnObstacles 
+
+  method to spawn various collectiables pseudo randomly
+   method should spawn collectable one of three possible lanes middle, left or right
+   method should pawn collectables in one of three possible height lanes low medium high
+   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the obstacles
+
+         IEnumerator SpawnCollectabkes (Quaternion rotation, int laneId, int heightLane, GameObject collectable) {
+         //algorithim to spawn a specific pattern
+           return;
+                                                                                      } // end SpawnCollectables 
+
+
+    */
 
     //******************************************************************************************************************************
 
+    //method to iterate score by 1
     public void AddScore() {
         score += 1;
 
-    }
+    } // end AddScore
+
 } // end GameControl

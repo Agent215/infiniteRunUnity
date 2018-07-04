@@ -40,7 +40,7 @@ public class HallCam : MonoBehaviour {
     // random number for positioning objects
     public float randomPos;
 
-
+//******************************************************************************************************************************
     // Use this for initialization
     void Start () {
 
@@ -55,9 +55,9 @@ public class HallCam : MonoBehaviour {
         
 
     } // end Start
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+//******************************************************************************************************************************
+      // Update is called once per frame
+    void FixedUpdate () {
 
 
        
@@ -94,15 +94,15 @@ public class HallCam : MonoBehaviour {
        
 
     }// end FixedUpdate
-
-    //setter 
+//******************************************************************************************************************************
+     //setter 
     public void SetSpeed(float speedIn) {
         outputSpeed = speedIn;
     }// end setSpeed
-
-    //Getter
+//******************************************************************************************************************************
+     //Getter
     public float GetSpeed() {
         return outputSpeed;
     }// end GetSpeed
-
+//******************************************************************************************************************************
 } //end HallCam

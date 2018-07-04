@@ -21,7 +21,7 @@ public class ObstacleCollision : MonoBehaviour {
         {
             SceneManager.LoadScene("GameOver");
             Cursor.lockState = CursorLockMode.None;
-        }
+        }// end if
         
-    }
-}
+    } // end on TriggerEnter
+} // end ObstacleCollision.cs
