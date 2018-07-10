@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: bd4d8107eedef3542a28dda45985e734
+timeCreated: 1531201257
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tron Bold Inline
+  fontNames:
+  - Tron Bold Inline
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d84035f7547ebb94baf59a16b4bf89bb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
