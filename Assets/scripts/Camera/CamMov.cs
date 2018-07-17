@@ -27,6 +27,11 @@ public class CamMov : MonoBehaviour
     public KeyCode slowDown;
     public int laneNumber = 2;       //  horizontal current lane camera is in. L= 1 , M=2 , R =3
 
+    //for VR input
+    private Vector2 CurrentTouch;
+    float TouchX;
+    float TouchY;
+    public GameObject Controller;
 
     public float speed;
 
@@ -62,6 +67,9 @@ public class CamMov : MonoBehaviour
     void Update()
     {
 
+        TouchX = GvrControllerInput.TouchPos.x;
+        TouchY = GvrControllerInput.TouchPos.y;
+
         //update camera position
         camPos = mainCamera.transform.position;                    
        
@@ -69,7 +77,7 @@ public class CamMov : MonoBehaviour
         // ------------------------Movement and Controls----------------------------------------------
 
         //move left
-        if (Input.GetKeyDown(moveLeft) && (laneNumber > 1) && (!controlLocked))
+        if (GvrControllerInput.ClickButton && (laneNumber > 1) && (!controlLocked) && (TouchX < .5))
         {
             StartCoroutine(MoveSmoothley(mainCamera.GetComponent<Transform>(),
                        mainCamera.GetComponent<Transform>().position,
@@ -81,7 +89,7 @@ public class CamMov : MonoBehaviour
         }// end if
 
         //move right
-        if (Input.GetKeyDown(moveRight) && (laneNumber < 3) && (!controlLocked))
+        if (GvrControllerInput.ClickButton && (laneNumber < 3) && (!controlLocked) && (TouchX >.5))
         {
 
             StartCoroutine(MoveSmoothley(mainCamera.GetComponent<Transform>(),
@@ -95,7 +103,7 @@ public class CamMov : MonoBehaviour
 
 
         //speed up
-        if (Input.GetKey(speedUp) && !(speed > 10)) {
+        if (GvrControllerInput.IsTouching && !(speed > 10) && (TouchY <.3f)) {
 
             speed += .02F;
             gameControl.GetComponent<HallCam>().SetSpeed(speed);
@@ -103,7 +111,7 @@ public class CamMov : MonoBehaviour
         }// end if
 
         //slow down
-        if (Input.GetKey(slowDown) && !(speed < 1))
+        if (GvrControllerInput.IsTouching && !(speed < 1) && (TouchY > .7f))
         {
             speed -= .02F;
             gameControl.GetComponent<HallCam>().SetSpeed(speed);

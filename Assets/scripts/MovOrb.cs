@@ -49,7 +49,9 @@ public class MovOrb : MonoBehaviour {
     public int laneNumber = 2;            //   Left= 1 , Middle=2 , Right =3
    
     // use to track speed relitive to tunnel 
-    private float speed;              
+    private float speed;
+
+    private float TouchY;
 
     // lerp variables to move pet smoothly based on speed of movement.
     public float lerpTime; 
@@ -85,6 +87,8 @@ public class MovOrb : MonoBehaviour {
     void  FixedUpdate()
     {
 
+        TouchY = GvrControllerInput.TouchPos.y;
+
         //update time
         lerpTime = Time.deltaTime;
 
@@ -106,11 +110,11 @@ public class MovOrb : MonoBehaviour {
         Debug.Log(petPos.x + "this is the pets location in x axis");
 
         //if we are speeding up move pet closer to player. but stop at player, harcoded for debugging
-        if ((Input.GetKey(speedUp)) && (DistanceModifier > 4.5))
+        if (GvrControllerInput.IsTouching && !(speed > 10) && (TouchY < .3f) && (DistanceModifier > 4.5))
             DistanceModifier -= .030f;
 
         //if we are slowing down move pet farther away but stop after distacne is to far ,harcoded for debugging
-        if ((Input.GetKey(slowDown))&& (DistanceModifier < 30))
+        if (GvrControllerInput.IsTouching && !(speed < 1) && (TouchY > .7f) && (DistanceModifier < 30))
             DistanceModifier += .030f;
 
 

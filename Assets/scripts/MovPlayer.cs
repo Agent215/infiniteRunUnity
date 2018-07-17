@@ -32,6 +32,11 @@ public class MovPlayer : MonoBehaviour {
     public int laneNumber = 2;       //  horizontal current lane camera is in. L= 1 , M=2 , R =3
 
 
+    //for VR input
+    private Vector2 CurrentTouch;
+    float TouchX;
+    public GameObject Controller;
+
     public bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
 
     //******************************************************************************************************************************
@@ -60,10 +65,10 @@ public class MovPlayer : MonoBehaviour {
     void Update()
     {
         playerPos = player.transform.position;
-
+        TouchX = GvrControllerInput.TouchPos.x;
 
         //move left
-        if (Input.GetKeyDown(moveLeft) && (laneNumber > 1) && (!controlLocked))
+        if (GvrControllerInput.ClickButton && (laneNumber > 1) && (!controlLocked) && (TouchX < .5))
         {
             StartCoroutine(MoveSmoothley(player.GetComponent<Transform>(),
                        player.GetComponent<Transform>().position,
@@ -75,7 +80,7 @@ public class MovPlayer : MonoBehaviour {
         }// end if
 
         //move right
-        if (Input.GetKeyDown(moveRight) && (laneNumber < 3) && (!controlLocked))
+        if (GvrControllerInput.ClickButton && (laneNumber < 3) && (!controlLocked) && (TouchX > .5))
         {
 
             StartCoroutine(MoveSmoothley(player.GetComponent<Transform>(),

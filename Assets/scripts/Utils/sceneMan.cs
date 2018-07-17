@@ -13,7 +13,7 @@ public class sceneMan : MonoBehaviour {
 	void Update () {
 		
 	}
-
+#if UNITY_ANDROID
     public void LoadMainLevel() {
 
         SceneManager.LoadScene("hallway 1");
@@ -33,5 +33,5 @@ public class sceneMan : MonoBehaviour {
         Application.Quit();
     }
 
-    
+#endif
 }

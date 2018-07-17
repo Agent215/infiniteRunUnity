@@ -321,7 +321,6 @@
     <Compile Include="Assets\GoogleVR\Legacy\Editor\Audio\GvrAudioSourceEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Barrel-Roll Droid\manual.txt" />
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-6DOF.xml" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
@@ -337,8 +336,9 @@
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlayColor.shader" />
     <None Include="Assets\GoogleVR\Shaders\Video\VideoUnlitShader.shader" />
-    <None Include="Assets\Space Theme Items and Props Starter Pack\--ReadMe--.txt" />
-    <None Include="Assets\_Creepy_Cat\_3D Scifi Kit Starter Kit\_Docs\Doc.txt" />
+    <None Include="Assets\ImportedAssets\Barrel-Roll Droid\manual.txt" />
+    <None Include="Assets\ImportedAssets\Space Theme Items and Props Starter Pack\--ReadMe--.txt" />
+    <None Include="Assets\ImportedAssets\_Creepy_Cat\_3D Scifi Kit Starter Kit\_Docs\Doc.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
