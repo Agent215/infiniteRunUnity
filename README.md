@@ -16,11 +16,13 @@ The camera is the first person view of the player the ball prefab represents a p
 - Obstacles should range in size and position pseudo randomly, according to a yet to be determined function.<br/>
 - There should be a score variable.<br/>
 - Player should be able to change where the camera looks, using VR controls<br/>
+- Player should be able to move left and right within VR.<br/>
+- “Game Over” in big letters along with your latest score available and anything like that layed over top of the  screen <br/><br/><br/>
+
 
 ## To be included in game :<br/><br/>
 - There should be a way to create a unique player save file which saves the following to a binary file for persistence between play sessions, and scenes.<br/>
 - There should be an integer to represent the level the player last played. 	<br/>
-- Player should be able to move left and right within VR.<br/>
 - The player should be able to target and “shoot” or “block” at different game objects as they appear. <br/>
 - “Targets” should detect player bullets and destroy on impact.<br/>
 - Players hand should detect incoming “bullets” and either register impact or not<br/>
@@ -33,7 +35,7 @@ The camera is the first person view of the player the ball prefab represents a p
 
 
 
-The game supports keyboard input for movement using the WASD keys. In future versions other means of input will be used that are suitable to virtual reality.<br/><br/>
+The Game supports input using the google daydream handheld controller..<br/><br/>
 
 The application infinteRunUnity has a build folder with an executable file that will run on Windows.
 download whole build folder then unzip and run .exe file title WindowsBuild.<br/><br/>
