@@ -19,7 +19,7 @@ public class CamMov : MonoBehaviour
     public Transform startMarker;
     public float lerpTime;
     public float lerpDistance;
-   
+
     //movements and controls
     public KeyCode moveLeft;
     public KeyCode moveRight;
@@ -37,7 +37,7 @@ public class CamMov : MonoBehaviour
 
     public Vector3 camPos;          // current point of camera 
     public GameObject mainCamera;  // main camera object
-    private GameObject gameControl; 
+    private GameObject gameControl;
 
     public bool controlLocked = false; // to prevent rapid button mashing of controls. when false controls work.
 
@@ -55,9 +55,9 @@ public class CamMov : MonoBehaviour
         lerpDistance = 2.0f;
         speed = gameControl.GetComponent<HallCam>().outputSpeed;
 
-   
+
         //initialize camera position at origin
-        camPos = mainCamera.transform.position;                   
+        camPos = mainCamera.transform.position;
 
     } // end start
 
@@ -71,8 +71,8 @@ public class CamMov : MonoBehaviour
         TouchY = GvrControllerInput.TouchPos.y;
 
         //update camera position
-        camPos = mainCamera.transform.position;                    
-       
+        camPos = mainCamera.transform.position;
+
 
         // ------------------------Movement and Controls----------------------------------------------
 
@@ -83,27 +83,28 @@ public class CamMov : MonoBehaviour
                        mainCamera.GetComponent<Transform>().position,
                        new Vector3(camPos.x, camPos.y,
                        camPos.z + lerpDistance), lerpTime));
-          
+
             laneNumber -= 1;
             controlLocked = true;
         }// end if
 
         //move right
-        if (GvrControllerInput.ClickButton && (laneNumber < 3) && (!controlLocked) && (TouchX >.5))
+        if (GvrControllerInput.ClickButton && (laneNumber < 3) && (!controlLocked) && (TouchX > .5))
         {
 
             StartCoroutine(MoveSmoothley(mainCamera.GetComponent<Transform>(),
                          mainCamera.GetComponent<Transform>().position,
                          new Vector3(camPos.x, camPos.y,
                         camPos.z - lerpDistance), lerpTime));
-         
+
             laneNumber += 1;
             controlLocked = true;
         }// end if
 
 
         //speed up
-        if (GvrControllerInput.IsTouching && !(speed > 10) && (TouchY <.3f)) {
+        if (GvrControllerInput.IsTouching && !(speed > 10) && (TouchY < .3f))
+        {
 
             speed += .02F;
             gameControl.GetComponent<HallCam>().SetSpeed(speed);
@@ -119,9 +120,8 @@ public class CamMov : MonoBehaviour
         }// end if
 
 
-
-
-       
+        //stop coroutines after player moves 
+        if (!controlLocked) { StopAllCoroutines(); }
 
     } //end update
 
@@ -139,7 +139,7 @@ public class CamMov : MonoBehaviour
         {
             i += Time.deltaTime * rate;
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-            
+
             yield return null;
         }//end while
 

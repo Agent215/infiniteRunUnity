@@ -64,6 +64,7 @@ public class MoveBike : MonoBehaviour {
 
      //******************************************************************************************************************************
 
+
     // Update is called once per frame
     void Update () {
         bikePos = bike.transform.position;
@@ -93,6 +94,11 @@ public class MoveBike : MonoBehaviour {
             laneNumber += 1;
             controlLocked = true;
         }// end if
+
+
+        //stop coroutines after player moves 
+        if (!controlLocked) { StopAllCoroutines(); }
+
     } // end update
 
     //******************************************************************************************************************************

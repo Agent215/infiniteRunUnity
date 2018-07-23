@@ -301,7 +301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 766346198, guid: 463285ecd6702471a909ba810832bf0e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422168469, guid: 463285ecd6702471a909ba810832bf0e, type: 2}
       propertyPath: vrModeOnly
@@ -501,6 +501,7 @@ MonoBehaviour:
   speedUp: 119
   slowDown: 115
   laneNumber: 2
+  Controller: {fileID: 0}
   speed: 0
   camPos: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 0}
@@ -569,6 +570,7 @@ MonoBehaviour:
   speedUp: 119
   slowDown: 115
   laneNumber: 2
+  Controller: {fileID: 0}
   controlLocked: 0
 --- !u!114 &369540793
 MonoBehaviour:
@@ -584,7 +586,10 @@ MonoBehaviour:
   player: {fileID: 0}
   gameControl: {fileID: 0}
   playerTransform: {fileID: 0}
+  bulletPrefab: {fileID: 1736867405682812, guid: c58ce8cc1889a0f46b22b30346384fa4,
+    type: 2}
   playerPos: {x: 0, y: 0, z: 0}
+  bulletSpawn: {fileID: 837372943}
   startMarker: {fileID: 0}
   lerpTime: 0
   lerpDistance: 0
@@ -593,6 +598,7 @@ MonoBehaviour:
   speedUp: 119
   slowDown: 115
   laneNumber: 2
+  Controller: {fileID: 0}
   controlLocked: 0
 --- !u!1 &408465095
 GameObject:
@@ -1278,6 +1284,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20000012123226224, guid: ce7abbbeb276a1547bd8ce1069fdabb7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce7abbbeb276a1547bd8ce1069fdabb7, type: 2}
   m_IsPrefabParent: 0
@@ -1628,7 +1639,7 @@ Transform:
   m_GameObject: {fileID: 1544173556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.1, z: 0}
-  m_LocalScale: {x: 300, y: 10, z: 12}
+  m_LocalScale: {x: 300, y: 50, z: 60}
   m_Children: []
   m_Father: {fileID: 677943398}
   m_RootOrder: 2
@@ -6518,6 +6529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 840365253}
+  - {fileID: 2027284076}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -6573,7 +6585,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1397919123}
+    m_TransformParent: {fileID: 1963704834}
     m_Modifications:
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6589,15 +6601,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
       propertyPath: m_LocalRotation.w
@@ -6612,12 +6624,24 @@ Prefab:
       propertyPath: enablePositionalTracking
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2027284074 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198490, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
+  m_PrefabInternal: {fileID: 2027284073}
+--- !u!4 &2027284076 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 2}
   m_PrefabInternal: {fileID: 2027284073}
 --- !u!1001 &2099131571
 Prefab:

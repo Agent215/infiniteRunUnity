@@ -1,37 +1,69 @@
 ﻿
+/* SceneMan.cs - Abraham Schultz - july2018- InflectionPoints Arts and Sciences
+ * 
+ * A class to switch between scenes in game. 
+ * 
+ */
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class sceneMan : MonoBehaviour {
+[RequireComponent(typeof(Collider))]
+public class sceneMan : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-#if UNITY_ANDROID
-    public void LoadMainLevel() {
-
-        SceneManager.LoadScene("hallway 1");
-
+    public void LoadMain() {
+        StopAllCoroutines();
+        //SceneManager.LoadScene("hallway 1");
+        StartCoroutine(LoadMainLevel());
     }
 
-    public void LoadStartMenu()
+    public void LoadStart()
     {
-        SceneManager.LoadScene("StartMenu");
+        StopAllCoroutines();
+        //SceneManager.LoadScene("StartMenu");
+        StartCoroutine(LoadStartMenu());
     }
+
+
+
+    IEnumerator LoadMainLevel()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("hallway 1");
+
+       
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+    } // end LoadMainLevel
+
+     IEnumerator LoadStartMenu()
+    {
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("StartMenu");
+        
+
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        
+    } // end LoadStartMenu
 
     public void Quit()
 
     {
 
-      
-        Application.Quit();
-    }
 
-#endif
-}
+        Application.Quit();
+    } // end Quit
+
+
+} // end SceneMan

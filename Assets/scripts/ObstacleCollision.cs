@@ -16,9 +16,10 @@ public class ObstacleCollision : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
 
-        // if obstacle hits pet, this will eventually never happen and only the player will be able to hit obstacles
+        // if obstacle hits bike
         if (other.gameObject.name == "Hoverbike")
         {
+            StopAllCoroutines();
             SceneManager.LoadScene("GameOver");
             Cursor.lockState = CursorLockMode.None;
         }// end if

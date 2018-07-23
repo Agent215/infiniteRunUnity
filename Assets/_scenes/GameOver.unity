@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254629932}
   - component: {fileID: 254629935}
+  - component: {fileID: 254629938}
   - component: {fileID: 254629934}
   - component: {fileID: 254629933}
   - component: {fileID: 254629936}
@@ -264,18 +265,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 254629934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 759666373}
-        m_MethodName: LoadStartMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &254629934
@@ -324,9 +314,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPointerClick:
     m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPointerDown:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 759666373}
-        m_MethodName: LoadStartMenu
+      - m_Target: {fileID: 254629938}
+        m_MethodName: LoadStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -336,11 +331,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPointerDown:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPointerUp:
@@ -375,6 +365,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &254629938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 254629931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9e2df197c42bd4ea21831698ff6f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &300142852 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010886689084, guid: d638298e697ca4e9b91853efadd0e6da,
@@ -1090,6 +1091,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20000012123226224, guid: ce7abbbeb276a1547bd8ce1069fdabb7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce7abbbeb276a1547bd8ce1069fdabb7, type: 2}
   m_IsPrefabParent: 0
@@ -1340,6 +1346,7 @@ GameObject:
   - component: {fileID: 1526031556}
   - component: {fileID: 1526031555}
   - component: {fileID: 1526031554}
+  - component: {fileID: 1526031559}
   - component: {fileID: 1526031557}
   - component: {fileID: 1526031558}
   m_Layer: 5
@@ -1466,8 +1473,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPointerClick:
     m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPointerDown:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 759666373}
+      - m_Target: {fileID: 1526031559}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -1478,11 +1490,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnPointerDown:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: GvrAllEventsTrigger+TriggerEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPointerUp:
@@ -1517,6 +1524,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1526031559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526031552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9e2df197c42bd4ea21831698ff6f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1578883336 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b,

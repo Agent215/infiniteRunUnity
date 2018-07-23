@@ -15,20 +15,20 @@ public class DeskComp : MonoBehaviour {
 
 
 
-    void OnMouseEnter()
-    {
+    //void OnMouseEnter()
+    //{
 
-        Debug.Log("mouse over computer screen");
-    } // end OnMouseEnter
+    //    Debug.Log("mouse over computer screen");
+    //} // end OnMouseEnter
 
-    void OnMouseDown()
-    {
+    //void OnMouseDown()
+    //{
 
-        Debug.Log("Computer Screen Clicked");
-        // if computer is clicked change scene to hall way 1
+    //    Debug.Log("Computer Screen Clicked");
+    //    // if computer is clicked change scene to hall way 1
 
 
-        SceneManager.LoadScene("hallway 1");
-    } // end OnMouseDown
+    //    SceneManager.LoadScene("hallway 1");
+    //} // end OnMouseDown
 
 } // end DeskComp

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class HallCam : MonoBehaviour {
 
+
     //  Walls //
     public float pos_x1;
     public float pos_x2;

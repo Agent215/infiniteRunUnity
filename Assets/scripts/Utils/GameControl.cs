@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
@@ -24,6 +25,7 @@ public class GameControl : MonoBehaviour {
     public float BuildingLaneNumber;
     public float CoinLaneNumber;
     public float yRotation;
+    public Scene currentScene;
 
     public int score;
 
@@ -39,6 +41,7 @@ public class GameControl : MonoBehaviour {
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
         yRotation = 0.0F;
+        currentScene = SceneManager.GetActiveScene();
 
     } // end start
 
@@ -52,12 +55,13 @@ public class GameControl : MonoBehaviour {
         randomPos = Random.value;
         randomSeed = Random.value;
 
-       
+        //check which scene we are in
+        currentScene = SceneManager.GetActiveScene();
 
         // change obstacle and coins change location randomly between three lanes left middle and right 
-        
+
         //middle lane
-            if (randomPos > .33f && randomPos < (.66f))
+        if (randomPos > .33f && randomPos < (.66f))
             {
 
             BuildingLaneNumber = -11.0f;
@@ -103,7 +107,9 @@ public class GameControl : MonoBehaviour {
                 CoinLaneNumber = -2.0f;
 
         } // end if 
-
+            
+            //check to see what scene we are in. if we are not in the main level stop corotines.  hardcoded for debugging
+            if (currentScene.name != "hallway 1") { StopAllCoroutines(); }
         
     } // end update
 

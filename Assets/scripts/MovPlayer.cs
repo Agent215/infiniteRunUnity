@@ -9,15 +9,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovPlayer : MonoBehaviour {
+public class MovPlayer : MonoBehaviour
+{
+
 
 
     //objects in game
     public GameObject player;
     public GameObject gameControl;
     public Transform playerTransform;
+    public GameObject bulletPrefab;
 
     public Vector3 playerPos;
+    public Transform bulletSpawn;
 
     // lerp variables to move smoothly based on speed of movement.
     public Transform startMarker;
@@ -91,6 +95,12 @@ public class MovPlayer : MonoBehaviour {
             laneNumber += 1;
             controlLocked = true;
         }// end if
+        
+        //shoot when controller is clicked
+        if (GvrControllerInput.ClickButton) { Fire(); }
+
+        //stop coroutines after player moves 
+        if (!controlLocked) { StopAllCoroutines(); }
     } // end update
 
     //******************************************************************************************************************************
@@ -112,4 +122,21 @@ public class MovPlayer : MonoBehaviour {
 
     }  // end Move Smoothley
 
+    //******************************************************************************************************************************
+
+    void Fire()
+    {
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position,
+            bulletSpawn.rotation);
+
+        // Add velocity to the bullet
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 2.0f);
+    } // end Fire
+  //******************************************************************************************************************************
 }// end MovPlayer

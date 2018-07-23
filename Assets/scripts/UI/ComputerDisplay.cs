@@ -49,24 +49,24 @@ namespace GoogleVR.HelloVR
 
         } // end update 
 
-        //#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
-        //    // when running on editor or windows
+//#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
+//        // when running on editor or windows
 
-        //    //display text when cursor is over object
-        //    private void OnMouseOver()
-        //    {
-        //        displayInfo = true;
-        //        GetComponent<Renderer>().material = LookingAtComp;
-        //    } // end OnMouseOver
+//        //display text when cursor is over object
+//        private void OnMouseOver()
+//        {
+//            displayInfo = true;
+//            GetComponent<Renderer>().material = LookingAtComp;
+//        } // end OnMouseOver
 
-        //    // hide text when cursor is not on object
-        //    private void OnMouseExit()
-        //    {
-        //        displayInfo = false;
-        //        GetComponent<Renderer>().material = NotLookingAtComp;
-        //    } // end onMouseExit
+//        // hide text when cursor is not on object
+//        private void OnMouseExit()
+//        {
+//            displayInfo = false;
+//            GetComponent<Renderer>().material = NotLookingAtComp;
+//        } // end onMouseExit
 
-        //#endif
+//#endif
 
 
         public void SetGazedAt(bool gazedAt)
@@ -76,7 +76,7 @@ namespace GoogleVR.HelloVR
                 myRenderer.material = gazedAt ? LookingAtComp : NotLookingAtComp;
                 return;
             }
-        }
+        } // end SetGazedAt
 
 #if UNITY_ANDROID
         //for Vr on Android
@@ -85,11 +85,9 @@ namespace GoogleVR.HelloVR
 
         public void OnPointerExit() { displayInfo = false; GetComponent<Renderer>().material = NotLookingAtComp; Debug.Log("Pointer Not over computer screen"); } // end OnPointerExit
 
-        public void OnPointerClick() { SceneManager.LoadScene("hallway 1"); } // end OnPointerClick
+        public void OnPointerClick() { StopAllCoroutines(); SceneManager.LoadScene("hallway 1"); } // end OnPointerClick
 
 
-
-        
 #endif
 
 

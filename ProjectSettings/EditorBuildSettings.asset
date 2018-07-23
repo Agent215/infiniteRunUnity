@@ -17,3 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_scenes/HelloVR.unity
     guid: bb36d2905dc634f1c9eecb35beecaca8
+  - enabled: 0
+    path: Assets/_scenes/loadingTestScene.unity
+    guid: 415e0dd385f46c54e84821fe6f8334db
+  m_configObjects: {}
