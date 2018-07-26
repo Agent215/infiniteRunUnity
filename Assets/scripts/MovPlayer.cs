@@ -97,7 +97,7 @@ public class MovPlayer : MonoBehaviour
         }// end if
         
         //shoot when controller is clicked
-        if (GvrControllerInput.ClickButton) { Fire(); }
+        if (GvrControllerInput.AppButtonDown) { Fire(); }
 
         //stop coroutines after player moves 
         if (!controlLocked) { StopAllCoroutines(); }
@@ -133,7 +133,7 @@ public class MovPlayer : MonoBehaviour
             bulletSpawn.rotation);
 
         // Add velocity to the bullet
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 30;
 
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);
