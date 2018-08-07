@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EnemyBullet.cs" />
     <Compile Include="Assets\explosion.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Assets\scripts\Utils\GameControl.cs" />
     <Compile Include="Assets\scripts\Utils\sceneMan.cs" />
     <Compile Include="Assets\scripts\Utils\ShpericalCoordinates.cs" />
+    <Compile Include="Assets\TurretControl.cs" />
     <None Include="Assets\ImportedAssets\Barrel-Roll Droid\manual.txt" />
     <None Include="Assets\ImportedAssets\VolumetricLines\Shaders\_StripShader.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />

@@ -12,19 +12,25 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
+    public GameObject tempObject;
     public GameObject building;
+    public GameObject Turret;
     public GameObject coin;
     public GameObject obstacle;
     public Vector3 spawnValues;
     public int coinCount;
+    public int TurretCount;
     public int obstacleCount;
     public float spawnWait;
     public float startWait;
     public float waveWait;
     public float ObstacleLaneNumber;
     public float BuildingLaneNumber;
+    public float TurretLaneNumber;
     public float CoinLaneNumber;
     public float yRotation;
+    public float xRotation;
+    public float zRotation;
     public Scene currentScene;
 
     public int score;
@@ -41,6 +47,8 @@ public class GameControl : MonoBehaviour {
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
         yRotation = 0.0F;
+        xRotation = 0.0f;
+        zRotation = 0.0f;
         currentScene = SceneManager.GetActiveScene();
 
     } // end start
@@ -54,7 +62,9 @@ public class GameControl : MonoBehaviour {
         //random seed number for object placement 
         randomPos = Random.value;
         randomSeed = Random.value;
-
+        yRotation = 0;
+        xRotation = 0;
+        zRotation = 0;
         //check which scene we are in
         currentScene = SceneManager.GetActiveScene();
 
@@ -65,6 +75,7 @@ public class GameControl : MonoBehaviour {
             {
 
             BuildingLaneNumber = -11.0f;
+            TurretLaneNumber = -5.0f;
             ObstacleLaneNumber = 0.0f;
 
             if (randomSeed <= .2f)
@@ -82,7 +93,7 @@ public class GameControl : MonoBehaviour {
 
             BuildingLaneNumber = 11.0f;
             ObstacleLaneNumber = -2.0f;
-
+            TurretLaneNumber = 5.0f;
 
 
             if (randomSeed <= .2f)
@@ -135,14 +146,32 @@ public class GameControl : MonoBehaviour {
                 Quaternion CoinRotation = Quaternion.identity;
                 Instantiate(coin, CoinPosition, CoinRotation);
 
-               //spawn buildings
+                //spawn buildings
                 Vector3 BuildingPosition = new Vector3(40.0f, 0, BuildingLaneNumber);
                 Quaternion buildingRotation = Quaternion.identity;
-                buildingRotation.eulerAngles = new Vector3(0, yRotation, 0);
-                Instantiate(building, BuildingPosition, buildingRotation);
-           
-
                
+                buildingRotation.eulerAngles = new Vector3(xRotation, yRotation, zRotation);
+               tempObject = Instantiate(building, BuildingPosition, buildingRotation);
+             
+                //if (BuildingLaneNumber == 11.0f)
+                //{
+                //    tempObject.transform.rotation.SetEulerAngles(new Vector3(xRotation, yRotation, zRotation));
+                //}
+
+                //else if (BuildingLaneNumber == -11.0f)
+                //{
+                //    tempObject.transform.rotation.SetEulerAngles(new Vector3(xRotation, 180, zRotation));
+
+                //}
+
+
+
+
+                //spawn turrets
+                Vector3 TurretPosition = new Vector3(50.0f, 0, TurretLaneNumber);
+                Quaternion TurretRoation = Quaternion.identity;
+                TurretRoation.eulerAngles = new Vector3(0, yRotation, 0);
+                Instantiate(Turret, TurretPosition, TurretRoation);
 
                 yield return new WaitForSeconds(spawnWait);
             }
