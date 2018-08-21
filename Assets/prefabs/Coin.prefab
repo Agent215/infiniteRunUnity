@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 54411587109559126}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 74f117521580504409e1f0d2d7b95121, type: 2}
   m_StaticBatchInfo:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rb: {fileID: 0}
+  speedDirection: 0
 --- !u!114 &114247227518101288
 MonoBehaviour:
   m_ObjectHideFlags: 1

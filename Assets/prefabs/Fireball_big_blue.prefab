@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54563098334162614}
   m_Layer: 0
   m_Name: Fireball_big_blue
-  m_TagString: Untagged
+  m_TagString: effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rb: {fileID: 54563098334162614}
+  speedDirection: 0
 --- !u!198 &198614471539188398
 ParticleSystem:
   m_ObjectHideFlags: 1

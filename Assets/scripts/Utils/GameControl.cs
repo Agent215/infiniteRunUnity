@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
-    public GameObject tempObject;
+    private GameObject gameControl;
     public GameObject building;
     public GameObject Turret;
     public GameObject coin;
@@ -32,6 +32,8 @@ public class GameControl : MonoBehaviour {
     public float xRotation;
     public float zRotation;
     public Scene currentScene;
+    
+
 
     public int score;
 
@@ -43,6 +45,8 @@ public class GameControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        gameControl = GameObject.Find("Game Control");
         score = 0;
         StartCoroutine(SpawnObjects());
         randomPos = Random.value;
@@ -57,7 +61,7 @@ public class GameControl : MonoBehaviour {
 
   
       // Update is called once per frame
-    void Update () {
+    void  FixedUpdate () {
 
         //random seed number for object placement 
         randomPos = Random.value;
@@ -135,49 +139,22 @@ public class GameControl : MonoBehaviour {
             for (int i = 0; i < obstacleCount; i++)
 
             {
+
+                //spawn coins
+                gameControl.GetComponent<SpawnObject>().SpawnObjects(CoinLaneNumber, coin, spawnValues.x, spawnValues.y, CoinLaneNumber);
                 //spawn obstacles
-                Vector3 ObstaclePosition = new Vector3(spawnValues.x, spawnValues.y, ObstacleLaneNumber);
-                Quaternion ObstacleRotation = Quaternion.identity;
-                Instantiate(obstacle, ObstaclePosition, ObstacleRotation);
-
-
-                // spawn coins
-                Vector3 CoinPosition = new Vector3(spawnValues.x, spawnValues.y, CoinLaneNumber);
-                Quaternion CoinRotation = Quaternion.identity;
-                Instantiate(coin, CoinPosition, CoinRotation);
+                gameControl.GetComponent<SpawnObject>().SpawnObjects(ObstacleLaneNumber, obstacle, spawnValues.x, spawnValues.y, ObstacleLaneNumber);
 
                 //spawn buildings
-                Vector3 BuildingPosition = new Vector3(40.0f, 0, BuildingLaneNumber);
-                Quaternion buildingRotation = Quaternion.identity;
-               
-                buildingRotation.eulerAngles = new Vector3(xRotation, yRotation, zRotation);
-               tempObject = Instantiate(building, BuildingPosition, buildingRotation);
-             
-                //if (BuildingLaneNumber == 11.0f)
-                //{
-                //    tempObject.transform.rotation.SetEulerAngles(new Vector3(xRotation, yRotation, zRotation));
-                //}
-
-                //else if (BuildingLaneNumber == -11.0f)
-                //{
-                //    tempObject.transform.rotation.SetEulerAngles(new Vector3(xRotation, 180, zRotation));
-
-                //}
-
-
-
-
+                gameControl.GetComponent<SpawnObject>().SpawnObjects(BuildingLaneNumber, building, 40, 0, BuildingLaneNumber);
                 //spawn turrets
-                Vector3 TurretPosition = new Vector3(50.0f, 0, TurretLaneNumber);
-                Quaternion TurretRoation = Quaternion.identity;
-                TurretRoation.eulerAngles = new Vector3(0, yRotation, 0);
-                Instantiate(Turret, TurretPosition, TurretRoation);
+                gameControl.GetComponent<SpawnObject>().SpawnObjects(TurretLaneNumber, Turret, 50, 0, TurretLaneNumber);
+               
 
                 yield return new WaitForSeconds(spawnWait);
             }
 
 
-            
 
             yield return new WaitForSeconds(waveWait);
 
@@ -185,43 +162,7 @@ public class GameControl : MonoBehaviour {
 
     } // end SpawnObjects
 
-    /*
-    
-   method to spawn various buildings pseudo randomly
-   method should spawn buildings in forgreound, midground, and background ranges
-   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the building
-
-   IEnumerator SpawnBuildings (Quaternion rotation, int laneId,GameObject Building) {
-
-        //algorithim to spawn a specific pattern
-           return;
-                                                                                      } // end SpawnBuildings 
-
-
-
-
-   method to spawn various obstacles pseudo randomly
-   method should spawn obstacles one of three possible lanes middle, left or right
-   method should pawn obstacles in one of three possible height lanes low medium high
-   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the obstacles
-
-         IEnumerator SpawnObstacles (Quaternion rotation, int laneId, int heightLane ,GameObject obstacle) {
-         //algorithim to spawn a specific pattern
-           return;
-                                                                                      } // end SpawnObstacles 
-
-  method to spawn various collectiables pseudo randomly
-   method should spawn collectable one of three possible lanes middle, left or right
-   method should pawn collectables in one of three possible height lanes low medium high
-   method should take in as argument the desired roation and lane ID number for placement also the gameobject repesenting the obstacles
-
-         IEnumerator SpawnCollectabkes (Quaternion rotation, int laneId, int heightLane, GameObject collectable) {
-         //algorithim to spawn a specific pattern
-           return;
-                                                                                      } // end SpawnCollectables 
-
-
-    */
+  
 
     //******************************************************************************************************************************
 

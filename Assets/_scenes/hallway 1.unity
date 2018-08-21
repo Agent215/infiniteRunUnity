@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 369540788}
   - component: {fileID: 369540789}
   - component: {fileID: 369540790}
+  - component: {fileID: 369540794}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -500,6 +501,7 @@ MonoBehaviour:
   Turret: {fileID: 1346280801674126, guid: 189923f50f22d604a9fea172e50b957b, type: 2}
   coin: {fileID: 1798333007713622, guid: 3160bea4396a014469539619bdb08652, type: 2}
   obstacle: {fileID: 1427410673105288, guid: e378cdf431887d6428dfdac9d4476455, type: 2}
+  tempEnemy: {fileID: 0}
   spawnValues: {x: 20, y: 0.5, z: 4}
   coinCount: 10
   TurretCount: 0
@@ -584,6 +586,17 @@ MonoBehaviour:
   laneNumber: 2
   Controller: {fileID: 0}
   controlLocked: 0
+--- !u!114 &369540794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369540785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270140fec895b104492b23ed86ec0551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408465095
 GameObject:
   m_ObjectHideFlags: 0

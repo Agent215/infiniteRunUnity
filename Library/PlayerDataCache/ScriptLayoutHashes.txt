@@ -169,6 +169,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 03f12694d8815c5c1846b514244afecc Assembly-CSharp.dll:.GvrAllEventsTrigger
 82c4df0703ee0c74fec7eda7f1754686 Assembly-CSharp.dll:.GvrAudioListener
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GvrPointerManager
+7fee89631690cc7af76fca04c4695f8e Assembly-CSharp.dll:.EnemyBullet
 7fee89631690cc7af76fca04c4695f8e Assembly-CSharp.dll:.Bullet
 0bfade0af05b2db65c80e9d8930a6e4b Assembly-CSharp.dll:.DisplayScore
 d1b8c4da5934cada56f589ef74da6e6c com.unity.postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
@@ -235,7 +236,7 @@ eca6588934e978a74735e6737af683a8 Assembly-CSharp.dll:.GvrReticlePointer
 dacc1a967248709755d8086eaa259c5a Assembly-CSharp.dll:.CamMov
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleVR.VideoDemo.ScrubberEvents
 e0b5fab095b897a875c8b7b10e6545d0 Assembly-CSharp.dll:.MoveBike
-50cc7145cf7d5a658c55dd9f089a0355 Assembly-CSharp.dll:.GameControl
+d4fc73002da949f80491744b7e2598a5 Assembly-CSharp.dll:.GameControl
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleVR.VideoDemo.VideoControlsManager
 81dc5af3744a08050494c77f5012051e Assembly-CSharp.dll:.GvrPointerGraphicRaycaster
 5d708ead9a8a3f8af542fec349ed718c Assembly-CSharp.dll:Gvr.Internal.EmulatorConfig
@@ -249,7 +250,7 @@ f3a7d6b7ba2834fa390d7aee0d4a2173 com.unity.postprocessing.Runtime.dll:UnityEngin
 1492247edf86a0bf3405b213bfac391d Assembly-CSharp.dll:.KeepNearOrigin
 9ecf63b6a8bb1286577ff434522270b2 Assembly-CSharp.dll:.Gravity
 7d05c1a36ca8db05546065b852216990 Assembly-CSharp.dll:.GvrController
-17c0935016d8ca939d20eb0c9aa7f860 Assembly-CSharp.dll:.MoveObjects
+086ba02eb5ea58ff4d50134bfc202cb9 Assembly-CSharp.dll:.MoveObjects
 0993c6cb8df0e25910c3ca6e47a7f2de Assembly-CSharp.dll:GoogleVR.VideoDemo.MenuHandler
 7421c1896a13d7175915b5e91d14cdb2 Assembly-CSharp.dll:.InitialAngularVelocity
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Gvr.Internal.EmulatorClientSocket
@@ -257,4 +258,3 @@ f3a7d6b7ba2834fa390d7aee0d4a2173 com.unity.postprocessing.Runtime.dll:UnityEngin
 e399fc54e753911801f12ac57c8fc414 Assembly-CSharp.dll:GoogleVR.HelloVR.HelloVRManager
 b2945430dfd6bbdb5d77043b47bf85e7 Assembly-CSharp.dll:.GvrControllerReticleVisual
 d885ad79a6ef5bfe2ce10637aac0b8a0 Assembly-CSharp.dll:GoogleVR.VideoDemo.AutoPlayVideo
-7fee89631690cc7af76fca04c4695f8e Assembly-CSharp.dll:.EnemyBullet

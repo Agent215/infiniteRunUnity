@@ -7,6 +7,9 @@ TagManager:
   - trigger
   - obstacle
   - Enemy
+  - Building
+  - Coin
+  - effect
   layers:
   - Default
   - TransparentFX
